@@ -1,0 +1,1929 @@
+{
+  "version": "3.4",
+  "log": [
+    {
+      "@layerzerolabs/solidity-examples/contracts/libraries/BytesLib.sol:BytesLib": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\libraries\\BytesLib.sol:11",
+        "version": {
+          "withMetadata": "3616046d1768cc93679874a1afdfb1d6433371f45f1649603d881ce730e25d51",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\libraries\\ExcessivelySafeCall.sol:4",
+        "version": {
+          "withMetadata": "25b960ae985ce559e4ce942797e07960b10f430b4dd0710461942eda208c9aee",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:14",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "@layerzerolabs/solidity-examples/contracts/libraries/BytesLib.sol:BytesLib"
+        ],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)",
+          "getConfig(uint16,uint16,address,uint256)",
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)",
+          "setTrustedRemote(uint16,bytes)",
+          "setTrustedRemoteAddress(uint16,bytes)",
+          "getTrustedRemoteAddress(uint16)",
+          "setPrecrime(address)",
+          "setMinDstGas(uint16,uint16,uint256)",
+          "setPayloadSizeLimit(uint16,uint256)",
+          "isTrustedRemote(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LzApp",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:31"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "lzEndpoint",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:20"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol:NonblockingLzApp": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:13",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "@layerzerolabs/solidity-examples/contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall"
+        ],
+        "methods": [
+          "nonblockingLzReceive(uint16,bytes,uint64,bytes)",
+          "retryMessage(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NonblockingLzApp",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            },
+            {
+              "label": "failedMessages",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))",
+              "contract": "NonblockingLzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+              "label": "mapping(bytes => mapping(uint64 => bytes32))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+              "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_bytes32)": {
+              "label": "mapping(uint64 => bytes32)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroEndpoint.sol:ILayerZeroEndpoint": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroEndpoint.sol:7",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig"
+        ],
+        "libraries": [],
+        "methods": [
+          "send(uint16,bytes,bytes,address payable,address,bytes)",
+          "receivePayload(uint16,bytes,address,uint64,uint256,bytes)",
+          "getInboundNonce(uint16,bytes)",
+          "getOutboundNonce(uint16,address)",
+          "estimateFees(uint16,address,bytes,bool,bytes)",
+          "getChainId()",
+          "retryPayload(uint16,bytes,bytes)",
+          "hasStoredPayload(uint16,bytes)",
+          "getSendLibraryAddress(address)",
+          "getReceiveLibraryAddress(address)",
+          "isSendingPayload()",
+          "isReceivingPayload()",
+          "getConfig(uint16,uint16,address,uint256)",
+          "getSendVersion(address)",
+          "getReceiveVersion(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroReceiver.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroUserApplicationConfig.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin\\contracts\\access\\Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin\\contracts\\access\\Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/LayerZeroTest.sol:LayerZeroTest": {
+        "src": "contracts\\LayerZeroTest.sol:15",
+        "version": {
+          "withMetadata": "d4f76b90d66d326f1ce13f876ed2cde254a05959f9048d6d6e6f420ddd3c3396",
+          "withoutMetadata": "1c0b6fa8a80add6b441b22501dad56d79efcb9ef5893a63bd01325ae6910bcd6",
+          "linkedWithoutMetadata": "1c0b6fa8a80add6b441b22501dad56d79efcb9ef5893a63bd01325ae6910bcd6"
+        },
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol:NonblockingLzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address)",
+          "send(string)",
+          "trustAddress(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LayerZeroTest",
+            "src": "contracts\\LayerZeroTest.sol:19"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "data",
+            "src": "contracts\\LayerZeroTest.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            },
+            {
+              "label": "failedMessages",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))",
+              "contract": "NonblockingLzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:18"
+            },
+            {
+              "label": "data",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_string_storage",
+              "contract": "LayerZeroTest",
+              "src": "contracts\\LayerZeroTest.sol:16"
+            },
+            {
+              "label": "destChainId",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_uint16",
+              "contract": "LayerZeroTest",
+              "src": "contracts\\LayerZeroTest.sol:17"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+              "label": "mapping(bytes => mapping(uint64 => bytes32))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+              "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_bytes32)": {
+              "label": "mapping(uint64 => bytes32)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      }
+    },
+    {
+      "@layerzerolabs/solidity-examples/contracts/libraries/BytesLib.sol:BytesLib": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\libraries\\BytesLib.sol:11",
+        "version": {
+          "withMetadata": "3616046d1768cc93679874a1afdfb1d6433371f45f1649603d881ce730e25d51",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\libraries\\ExcessivelySafeCall.sol:4",
+        "version": {
+          "withMetadata": "25b960ae985ce559e4ce942797e07960b10f430b4dd0710461942eda208c9aee",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:14",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "@layerzerolabs/solidity-examples/contracts/libraries/BytesLib.sol:BytesLib"
+        ],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)",
+          "getConfig(uint16,uint16,address,uint256)",
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)",
+          "setTrustedRemote(uint16,bytes)",
+          "setTrustedRemoteAddress(uint16,bytes)",
+          "getTrustedRemoteAddress(uint16)",
+          "setPrecrime(address)",
+          "setMinDstGas(uint16,uint16,uint256)",
+          "setPayloadSizeLimit(uint16,uint256)",
+          "isTrustedRemote(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LzApp",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:31"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "lzEndpoint",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:20"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol:NonblockingLzApp": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:13",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "@layerzerolabs/solidity-examples/contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall"
+        ],
+        "methods": [
+          "nonblockingLzReceive(uint16,bytes,uint64,bytes)",
+          "retryMessage(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NonblockingLzApp",
+            "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            },
+            {
+              "label": "failedMessages",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))",
+              "contract": "NonblockingLzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+              "label": "mapping(bytes => mapping(uint64 => bytes32))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+              "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_bytes32)": {
+              "label": "mapping(uint64 => bytes32)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroEndpoint.sol:ILayerZeroEndpoint": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroEndpoint.sol:7",
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig"
+        ],
+        "libraries": [],
+        "methods": [
+          "send(uint16,bytes,bytes,address payable,address,bytes)",
+          "receivePayload(uint16,bytes,address,uint64,uint256,bytes)",
+          "getInboundNonce(uint16,bytes)",
+          "getOutboundNonce(uint16,address)",
+          "estimateFees(uint16,address,bytes,bool,bytes)",
+          "getChainId()",
+          "retryPayload(uint16,bytes,bytes)",
+          "hasStoredPayload(uint16,bytes)",
+          "getSendLibraryAddress(address)",
+          "getReceiveLibraryAddress(address)",
+          "isSendingPayload()",
+          "isReceivingPayload()",
+          "getConfig(uint16,uint16,address,uint256)",
+          "getSendVersion(address)",
+          "getReceiveVersion(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroReceiver.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig": {
+        "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroUserApplicationConfig.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin\\contracts\\access\\Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin\\contracts\\access\\Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin\\contracts\\utils\\Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/LayerZeroTest.sol:LayerZeroTest": {
+        "src": "contracts\\LayerZeroTest.sol:16",
+        "version": {
+          "withMetadata": "924b8f0b86a90353f045c7e35c2f42d4fa2bf97298f62bbfae0f3015ed4c592c",
+          "withoutMetadata": "1c0b6fa8a80add6b441b22501dad56d79efcb9ef5893a63bd01325ae6910bcd6",
+          "linkedWithoutMetadata": "1c0b6fa8a80add6b441b22501dad56d79efcb9ef5893a63bd01325ae6910bcd6"
+        },
+        "inherit": [
+          "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol:NonblockingLzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol:LzApp",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address)",
+          "send(string)",
+          "trustAddress(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LayerZeroTest",
+            "src": "contracts\\LayerZeroTest.sol:20"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "data",
+            "src": "contracts\\LayerZeroTest.sol:17"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol:24"
+            },
+            {
+              "label": "failedMessages",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))",
+              "contract": "NonblockingLzApp",
+              "src": "@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol:18"
+            },
+            {
+              "label": "data",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_string_storage",
+              "contract": "LayerZeroTest",
+              "src": "contracts\\LayerZeroTest.sol:17"
+            },
+            {
+              "label": "destChainId",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_uint16",
+              "contract": "LayerZeroTest",
+              "src": "contracts\\LayerZeroTest.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+              "label": "mapping(bytes => mapping(uint64 => bytes32))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+              "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_bytes32)": {
+              "label": "mapping(uint64 => bytes32)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "contracts/libraries/BytesLib.sol:BytesLib": {
+        "src": "contracts\\libraries\\BytesLib.sol:11",
+        "version": {
+          "withMetadata": "efff1a81d3783ee0ad9f7801e6b38540ca2999dec35703875b9f2f044b5a4e0c",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall": {
+        "src": "contracts\\libraries\\ExcessivelySafeCall.sol:4",
+        "version": {
+          "withMetadata": "3c51536ac519de568d76c298454986a51455e7d5497fa4b60f87e00437f6ce09",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/LzApp.sol:LzApp": {
+        "src": "contracts\\lzApp\\LzApp.sol:14",
+        "inherit": [
+          "contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "contracts/libraries/BytesLib.sol:BytesLib"
+        ],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)",
+          "getConfig(uint16,uint16,address,uint256)",
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)",
+          "setTrustedRemote(uint16,bytes)",
+          "setTrustedRemoteAddress(uint16,bytes)",
+          "getTrustedRemoteAddress(uint16)",
+          "setPrecrime(address)",
+          "setMinDstGas(uint16,uint16,uint256)",
+          "setPayloadSizeLimit(uint16,uint256)",
+          "isTrustedRemote(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LzApp",
+            "src": "contracts\\lzApp\\LzApp.sol:31"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "lzEndpoint",
+            "src": "contracts\\lzApp\\LzApp.sol:20"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:24"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/NonblockingLzApp.sol:NonblockingLzApp": {
+        "src": "contracts\\lzApp\\NonblockingLzApp.sol:13",
+        "inherit": [
+          "contracts/lzApp/LzApp.sol:LzApp",
+          "contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig",
+          "contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver",
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [
+          "contracts/libraries/ExcessivelySafeCall.sol:ExcessivelySafeCall"
+        ],
+        "methods": [
+          "nonblockingLzReceive(uint16,bytes,uint64,bytes)",
+          "retryMessage(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NonblockingLzApp",
+            "src": "contracts\\lzApp\\NonblockingLzApp.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin\\contracts\\access\\Ownable.sol:21"
+            },
+            {
+              "label": "trustedRemoteLookup",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint16,t_bytes_storage)",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:21"
+            },
+            {
+              "label": "minDstGasLookup",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:22"
+            },
+            {
+              "label": "payloadSizeLimitLookup",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint16,t_uint256)",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:23"
+            },
+            {
+              "label": "precrime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_address",
+              "contract": "LzApp",
+              "src": "contracts\\lzApp\\LzApp.sol:24"
+            },
+            {
+              "label": "failedMessages",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))",
+              "contract": "NonblockingLzApp",
+              "src": "contracts\\lzApp\\NonblockingLzApp.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+              "label": "mapping(bytes => mapping(uint64 => bytes32))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_bytes_storage)": {
+              "label": "mapping(uint16 => bytes)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+              "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+              "label": "mapping(uint16 => mapping(uint16 => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_uint256)": {
+              "label": "mapping(uint16 => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_bytes32)": {
+              "label": "mapping(uint64 => bytes32)",
+              "numberOfBytes": "32"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/interfaces/ILayerZeroEndpoint.sol:ILayerZeroEndpoint": {
+        "src": "contracts\\lzApp\\interfaces\\ILayerZeroEndpoint.sol:7",
+        "inherit": [
+          "contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig"
+        ],
+        "libraries": [],
+        "methods": [
+          "send(uint16,bytes,bytes,address payable,address,bytes)",
+          "receivePayload(uint16,bytes,address,uint64,uint256,bytes)",
+          "getInboundNonce(uint16,bytes)",
+          "getOutboundNonce(uint16,address)",
+          "estimateFees(uint16,address,bytes,bool,bytes)",
+          "getChainId()",
+          "retryPayload(uint16,bytes,bytes)",
+          "hasStoredPayload(uint16,bytes)",
+          "getSendLibraryAddress(address)",
+          "getReceiveLibraryAddress(address)",
+          "isSendingPayload()",
+          "isReceivingPayload()",
+          "getConfig(uint16,uint16,address,uint256)",
+          "getSendVersion(address)",
+          "getReceiveVersion(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/interfaces/ILayerZeroReceiver.sol:ILayerZeroReceiver": {
+        "src": "contracts\\lzApp\\interfaces\\ILayerZeroReceiver.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "lzReceive(uint16,bytes,uint64,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig": {
+        "src": "contracts\\lzApp\\interfaces\\ILayerZeroUserApplicationConfig.sol:5",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/libs/LzLib.sol:LzLib": {
+        "src": "contracts\\lzApp\\libs\\LzLib.sol:6",
+        "version": {
+          "withMetadata": "f4520727cd65f83312935706bf904fc0cee0c645d4aa04508fbfdbe21b61cc20",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      },
+      "contracts/lzApp/mocks/LZEndpointMock.sol:LZEndpointMock": {
+        "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:20",
+        "version": {
+          "withMetadata": "a81aeaf41d0e2b9f2a94987f81a83a40e56a7b8a61309b17421ea5e7318df262",
+          "withoutMetadata": "862a5bdf894a7c70644f4aab9e7df91d054df609640e7a60cda8d03df423f10b",
+          "linkedWithoutMetadata": "862a5bdf894a7c70644f4aab9e7df91d054df609640e7a60cda8d03df423f10b"
+        },
+        "inherit": [
+          "contracts/lzApp/interfaces/ILayerZeroEndpoint.sol:ILayerZeroEndpoint",
+          "contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol:ILayerZeroUserApplicationConfig"
+        ],
+        "libraries": [
+          "contracts/lzApp/libs/LzLib.sol:LzLib"
+        ],
+        "methods": [
+          "(uint16)",
+          "send(uint16,bytes,bytes,address payable,address,bytes)",
+          "receivePayload(uint16,bytes,address,uint64,uint256,bytes)",
+          "getInboundNonce(uint16,bytes)",
+          "getOutboundNonce(uint16,address)",
+          "estimateFees(uint16,address,bytes,bool,bytes)",
+          "getChainId()",
+          "retryPayload(uint16,bytes,bytes)",
+          "hasStoredPayload(uint16,bytes)",
+          "getSendLibraryAddress(address)",
+          "getReceiveLibraryAddress(address)",
+          "isSendingPayload()",
+          "isReceivingPayload()",
+          "getConfig(uint16,uint16,address,uint256)",
+          "getSendVersion(address)",
+          "getReceiveVersion(address)",
+          "setConfig(uint16,uint16,uint256,bytes)",
+          "setSendVersion(uint16)",
+          "setReceiveVersion(uint16)",
+          "forceResumeReceive(uint16,bytes)",
+          "getLengthOfQueue(uint16,bytes)",
+          "blockNextMsg()",
+          "setDestLzEndpoint(address,address)",
+          "setRelayerPrice(uint128,uint128,uint128,uint64,uint64)",
+          "setProtocolFee(uint256,uint256)",
+          "setOracleFee(uint256)",
+          "setDefaultAdapterParams(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "LZEndpointMock",
+            "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:96"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_send_entered_state",
+            "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:49"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_receive_entered_state",
+            "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:50"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "lzEndpointLookup",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_address,t_address)",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:24"
+            },
+            {
+              "label": "mockChainId",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint16",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:26"
+            },
+            {
+              "label": "nextMsgBlocked",
+              "offset": 2,
+              "slot": "1",
+              "type": "t_bool",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:27"
+            },
+            {
+              "label": "relayerFeeConfig",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_struct(RelayerFeeConfig)3360_storage",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:30"
+            },
+            {
+              "label": "protocolFeeConfig",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_struct(ProtocolFeeConfig)3349_storage",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:31"
+            },
+            {
+              "label": "oracleFee",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:32"
+            },
+            {
+              "label": "defaultAdapterParams",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_bytes_storage",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:33"
+            },
+            {
+              "label": "inboundNonce",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_uint64))",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:37"
+            },
+            {
+              "label": "outboundNonce",
+              "offset": 0,
+              "slot": "9",
+              "type": "t_mapping(t_uint16,t_mapping(t_address,t_uint64))",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:40"
+            },
+            {
+              "label": "storedPayload",
+              "offset": 0,
+              "slot": "10",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_struct(StoredPayload)3367_storage))",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:44"
+            },
+            {
+              "label": "msgsToDeliver",
+              "offset": 0,
+              "slot": "11",
+              "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_array(t_struct(QueuedPayload)3374_storage)dyn_storage))",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:46"
+            },
+            {
+              "label": "_send_entered_state",
+              "offset": 0,
+              "slot": "12",
+              "type": "t_uint8",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:49"
+            },
+            {
+              "label": "_receive_entered_state",
+              "offset": 1,
+              "slot": "12",
+              "type": "t_uint8",
+              "contract": "LZEndpointMock",
+              "src": "contracts\\lzApp\\mocks\\LZEndpointMock.sol:50"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_struct(QueuedPayload)3374_storage)dyn_storage": {
+              "label": "struct LZEndpointMock.QueuedPayload[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_memory_ptr": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_bytes_storage": {
+              "label": "bytes",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_address)": {
+              "label": "mapping(address => address)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint64)": {
+              "label": "mapping(address => uint64)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_array(t_struct(QueuedPayload)3374_storage)dyn_storage)": {
+              "label": "mapping(bytes => struct LZEndpointMock.QueuedPayload[])",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_struct(StoredPayload)3367_storage)": {
+              "label": "mapping(bytes => struct LZEndpointMock.StoredPayload)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_bytes_memory_ptr,t_uint64)": {
+              "label": "mapping(bytes => uint64)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_address,t_uint64))": {
+              "label": "mapping(uint16 => mapping(address => uint64))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_array(t_struct(QueuedPayload)3374_storage)dyn_storage))": {
+              "label": "mapping(uint16 => mapping(bytes => struct LZEndpointMock.QueuedPayload[]))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_struct(StoredPayload)3367_storage))": {
+              "label": "mapping(uint16 => mapping(bytes => struct LZEndpointMock.StoredPayload))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_uint64))": {
+              "label": "mapping(uint16 => mapping(bytes => uint64))",
+              "numberOfBytes": "32"
+            },
+            "t_struct(ProtocolFeeConfig)3349_storage": {
+              "label": "struct LZEndpointMock.ProtocolFeeConfig",
+              "members": [
+                {
+                  "label": "zroFee",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "nativeBP",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_struct(QueuedPayload)3374_storage": {
+              "label": "struct LZEndpointMock.QueuedPayload",
+              "members": [
+                {
+                  "label": "dstAddress",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "nonce",
+                  "type": "t_uint64",
+                  "offset": 20,
+                  "slot": "0"
+                },
+                {
+                  "label": "payload",
+                  "type": "t_bytes_storage",
+                  "offset": 0,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_struct(RelayerFeeConfig)3360_storage": {
+              "label": "struct LZEndpointMock.RelayerFeeConfig",
+              "members": [
+                {
+                  "label": "dstPriceRatio",
+                  "type": "t_uint128",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "dstGasPriceInWei",
+                  "type": "t_uint128",
+                  "offset": 16,
+                  "slot": "0"
+                },
+                {
+                  "label": "dstNativeAmtCap",
+                  "type": "t_uint128",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "baseGas",
+                  "type": "t_uint64",
+                  "offset": 16,
+                  "slot": "1"
+                },
+                {
+                  "label": "gasPerByte",
+                  "type": "t_uint64",
+                  "offset": 24,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_struct(StoredPayload)3367_storage": {
+              "label": "struct LZEndpointMock.StoredPayload",
+              "members": [
+                {
+                  "label": "payloadLength",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "dstAddress",
+                  "type": "t_address",
+                  "offset": 8,
+                  "slot": "0"
+                },
+                {
+                  "label": "payloadHash",
+                  "type": "t_bytes32",
+                  "offset": 0,
+                  "slot": "1"
+                }
+              ],
+              "numberOfBytes": "64"
+            },
+            "t_uint128": {
+              "label": "uint128",
+              "numberOfBytes": "16"
+            },
+            "t_uint16": {
+              "label": "uint16",
+              "numberOfBytes": "2"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            },
+            "t_uint8": {
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        }
+      },
+      "hardhat/console.sol:console": {
+        "src": "hardhat\\console.sol:4",
+        "version": {
+          "withMetadata": "3e987e53a505ed70cff6daed1917694e1573decf3c1fe766c121d8d5e5497d13",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        }
+      }
+    }
+  ]
+}
