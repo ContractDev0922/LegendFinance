@@ -5,7 +5,7 @@ pragma solidity 0.8.15;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol";
-import "@layerzerolabs/solidity-examples/contracts/libraries/LzLib.sol";
+import "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol";
 
 import "./interfaces/IWETH.sol";
 import "./interfaces/ITokenBridge.sol";

@@ -38,7 +38,7 @@ module.exports = {
   },
   namedAccounts: {
     endpoint: {
-      97: '0x6Fcb97553D41516Cb228ac03FdC8B9a0a9df04A1', 
+      97: '0x6Fcb97553D41516Cb228ac03FdC8B9a0a9df04A1',
       4002: '0x7dcAD72640F835B0FA36EFD3D6d3ec902C7E5acf',
       // 80001: '0xf69186dfBa60DdB133E91E9A4B5673624293d8F8',
       // 421613: '0x6aB5Ae6822647046626e83ee6dB8187151E1d5ab',
@@ -100,7 +100,7 @@ module.exports = {
         }
       },
       {
-        version: '0.8.4',
+        version: '0.8.15',
         settings: {
           optimizer: {
             enabled: optimizerEnabled,
@@ -142,4 +142,3 @@ module.exports = {
     ],
   },
 }
-

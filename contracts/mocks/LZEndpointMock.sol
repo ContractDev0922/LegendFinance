@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.12;
 
-import "@layerzerolabs/solidity-examples/contracts/libraries/LzLib.sol";
-import "@layerzerolabs/solidity-examples/contracts/interfaces/ILayerZeroEndpoint.sol";
-import "@layerzerolabs/solidity-examples/contracts/interfaces/ILayerZeroReceiver.sol";
+import "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol";
+import "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroEndpoint.sol";
+import "@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol";
 
 /*
 like a real LayerZero enpoint but can be mocked, which handle message transmission, verification, and receipt.

@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "@layerzerolabs/solidity-examples/contracts/libraries/LzLib.sol";
+import "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol";
 
 interface ITokenBridge {
     enum PacketType {
