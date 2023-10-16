@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@layerzerolabs/lz-sdk": "^0.0.45",
+    "@remix-project/remixd": "^0.6.18",
     "forge-std": "^1.1.2"
   }
 }
