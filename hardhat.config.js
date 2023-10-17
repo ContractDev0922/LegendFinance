@@ -9,6 +9,7 @@ require("@nomiclabs/hardhat-etherscan");
 const privateKey = "bd8babaad9e441f43dc95a78143883092799966ebf6d3c6e9e162ce6d7779cac";
 const privateKey2 = "f7c3f25a63f452b8f3e8a71c2b37d8462604e978643efec32eee91ff46c295b6";
 const privateKey3 = "3cbb3ecaf6cdbe4ac29770cbbf99eadeb6d1542bd79b799eaee46b80756a2c5c";
+const apiKeyForEther = "4ARK4U4MFIHSAGQQ7G1EU35DASZGHBFTUX";
 const apiKeyForBsc = "DXYJCRMES7V4FTE33VMKWCXCFT2RMKQR98";
 const apiKeyForFantom = "FTA4N3Z3PAQAK5CMSFNJZP1EM8B89MC5TN";// or 8TMJEQW7DEY7AUNMFMAATJS7Y6DMXR2UEM
 const apiKeyForPolygon = "JTSAAV27EQTT6SPF827J4ZZ9Z2CRG2D256";
@@ -25,6 +26,7 @@ module.exports = {
     flat: true,
   },
   etherscan: {
+    // apiKey: apiKeyForEther,
     // apiKey: apiKeyForBsc,
     // apiKey: apiKeyForFantom,
     apiKey: apiKeyForPolygon,
@@ -42,31 +44,31 @@ module.exports = {
       97: '0x6Fcb97553D41516Cb228ac03FdC8B9a0a9df04A1',
       4002: '0x7dcAD72640F835B0FA36EFD3D6d3ec902C7E5acf',
       80001: '0xf69186dfBa60DdB133E91E9A4B5673624293d8F8',
-      421613: '0x6aB5Ae6822647046626e83ee6dB8187151E1d5ab',
+      11155111: '0xae92d5aD7583AD66E49A0c67BAd18F6ba52dDDc1',
     },
     contract: {
       97: '',
       4002: '',
       80001: '',
-      421613: '',
+      11155111: '',
     },
     dexRouter: {
       97: '0x746b2a0C701Aba855f36Ead0128cD2853cb1fbAC',
-      4002: '0x345E43b9Ed5a8D766210c0AF79362A31165249ff',
-      80001: '0xd62ae233Eef8ffca4AD1C6055618c0aD5c132Dd4',
-      421613: '',
+      4002: '0xFBc36c21F2EB2E2EF7cC4daE84Be603aA204984a',
+      80001: '0x2FfF1Db35d03Df4da80697EC6781E12a85af000D',
+      11155111: '',
     },
     dexFactory: {
       97: '0x451E07DbFb22b3943cD9EDEf8FEbD8b5cB4Cc488',
-      4002: '0x51824Eba79A051467FbCBEe613dC42DEEf1508E4',
+      4002: '0x7a52c4C485b9A0F805a790C0801fBf14956fa41c',
       80001: '',
-      421613: '',
+      11155111: '',
     },
     dexWeth: {
       97: '0x628D69da33e24AD373E5089E81191660AbD29f5d',
-      4002: '0x1C2b1b4F534C6eF1cDEe107e2B0DC28c37C6e94A',
+      4002: '0x6Fe295D3f5F7fFd809F6cc0746D8936496305017',
       80001: '',
-      421613: '',
+      11155111: '',
     }
   },
   defaultNetwork: "hardhat",
@@ -88,6 +90,7 @@ module.exports = {
       accounts: [privateKey, privateKey2, privateKey3]
     },
     mumbaitest: { // 80001
+      // url: `https://rpc-mumbai.maticvigil.com`,
       url: `https://polygon-mumbai.infura.io/v3/8dd6d18540ea448ab5066eac3933cdc8`,
       accounts: [privateKey, privateKey2, privateKey3]
     },

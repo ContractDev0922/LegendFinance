@@ -2,6 +2,1186 @@
   "version": "3.4",
   "log": [
     {
+      "contracts/libs/weth.sol:WETH": {
+        "src": "contracts\\libs\\weth.sol:5",
+        "version": {
+          "withMetadata": "82c0b711b5fb92dc403f875be2a1f6147cf4dc7e2d1e2f410814014f0358c12f",
+          "withoutMetadata": "f82e2900b5e56c4eb0511e006b27ddd6b8e95100faded37012bef0dc5dcf3c1f",
+          "linkedWithoutMetadata": "f82e2900b5e56c4eb0511e006b27ddd6b8e95100faded37012bef0dc5dcf3c1f"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "()",
+          "()",
+          "deposit()",
+          "withdraw(uint256)",
+          "totalSupply()",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "state-variable-assignment",
+            "name": "name",
+            "src": "contracts\\libs\\weth.sol:6"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "symbol",
+            "src": "contracts\\libs\\weth.sol:7"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "decimals",
+            "src": "contracts\\libs\\weth.sol:8"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "name",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "WETH",
+              "src": "contracts\\libs\\weth.sol:6"
+            },
+            {
+              "label": "symbol",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_string_storage",
+              "contract": "WETH",
+              "src": "contracts\\libs\\weth.sol:7"
+            },
+            {
+              "label": "decimals",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint8",
+              "contract": "WETH",
+              "src": "contracts\\libs\\weth.sol:8"
+            },
+            {
+              "label": "balanceOf",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "WETH",
+              "src": "contracts\\libs\\weth.sol:15"
+            },
+            {
+              "label": "allowance",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "WETH",
+              "src": "contracts\\libs\\weth.sol:16"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint8": {
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      }
+    },
+    {
+      "contracts/libs/dexfactory.sol:IERC20": {
+        "src": "contracts\\libs\\dexfactory.sol:26",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:IPancakeSwapCallee": {
+        "src": "contracts\\libs\\dexfactory.sol:95",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "PancakeSwapCall(address,uint256,uint256,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:IPancakeSwapERC20": {
+        "src": "contracts\\libs\\dexfactory.sol:42",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "DOMAIN_SEPARATOR()",
+          "PERMIT_TYPEHASH()",
+          "nonces(address)",
+          "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:IPancakeSwapFactory": {
+        "src": "contracts\\libs\\dexfactory.sol:8",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "feeTo()",
+          "feeToSetter()",
+          "init_code_pair_hash()",
+          "getPair(address,address)",
+          "allPairs()",
+          "allPairsLength()",
+          "createPair(address,address)",
+          "setFeeTo(address)",
+          "setFeeToSetter(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:IPancakeSwapPair": {
+        "src": "contracts\\libs\\dexfactory.sol:64",
+        "inherit": [
+          "contracts/libs/dexfactory.sol:IPancakeSwapERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "factory()",
+          "token0()",
+          "token1()",
+          "getReserves()",
+          "price0CumulativeLast()",
+          "price1CumulativeLast()",
+          "kLast()",
+          "mint(address)",
+          "burn(address)",
+          "swap(uint256,uint256,address,bytes)",
+          "skim(address)",
+          "sync()",
+          "initialize(address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:Math": {
+        "src": "contracts\\libs\\dexfactory.sol:550",
+        "version": {
+          "withMetadata": "390edd90a29046d93402ed2b070c5eed064a942c01fc3224b7ed73311a6f9f2b",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:PancakeSwapERC20": {
+        "src": "contracts\\libs\\dexfactory.sol:99",
+        "version": {
+          "withMetadata": "b2f26ca6e7e4dd90abef9e145d99b77769233bc3fda90b91cddd5aa3d2a4e825",
+          "withoutMetadata": "85475e7a3e397b282afbb5074a7f68d25f4d7e22d8643b44feac0086067b9e61",
+          "linkedWithoutMetadata": "85475e7a3e397b282afbb5074a7f68d25f4d7e22d8643b44feac0086067b9e61"
+        },
+        "inherit": [
+          "contracts/libs/dexfactory.sol:IPancakeSwapERC20"
+        ],
+        "libraries": [
+          "contracts/libs/dexfactory.sol:SafeMath"
+        ],
+        "methods": [
+          "()",
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "DOMAIN_SEPARATOR()",
+          "PERMIT_TYPEHASH()",
+          "nonces(address)",
+          "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "PancakeSwapERC20",
+            "src": "contracts\\libs\\dexfactory.sol:114"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_name",
+            "src": "contracts\\libs\\dexfactory.sol:102"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_symbol",
+            "src": "contracts\\libs\\dexfactory.sol:103"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_decimals",
+            "src": "contracts\\libs\\dexfactory.sol:104"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "_PERMIT_TYPEHASH",
+            "src": "contracts\\libs\\dexfactory.sol:111"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:102"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_string_storage",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:103"
+            },
+            {
+              "label": "_decimals",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint8",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:104"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:105"
+            },
+            {
+              "label": "_balanceOf",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:106"
+            },
+            {
+              "label": "_allowance",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:107"
+            },
+            {
+              "label": "_DOMAIN_SEPARATOR",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_bytes32",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:109"
+            },
+            {
+              "label": "_PERMIT_TYPEHASH",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_bytes32",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:111"
+            },
+            {
+              "label": "_nonces",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:112"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint8": {
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:PancakeSwapFactory": {
+        "src": "contracts\\libs\\dexfactory.sol:464",
+        "version": {
+          "withMetadata": "29c765390df255fb90fcbd13f9ae60feaf9148fb4bb70bd6c93170ae57abef41",
+          "withoutMetadata": "d94118053b68ac678f179d464e4efaad07bb49482c5a56c0d38c56ba511c680f",
+          "linkedWithoutMetadata": "d94118053b68ac678f179d464e4efaad07bb49482c5a56c0d38c56ba511c680f"
+        },
+        "inherit": [
+          "contracts/libs/dexfactory.sol:IPancakeSwapFactory"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address)",
+          "getPair(address,address)",
+          "allPairs()",
+          "allPairsLength()",
+          "feeTo()",
+          "feeToSetter()",
+          "init_code_pair_hash()",
+          "createPair(address,address)",
+          "setFeeTo(address)",
+          "setFeeToSetter(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "PancakeSwapFactory",
+            "src": "contracts\\libs\\dexfactory.sol:475"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_feeTo",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "PancakeSwapFactory",
+              "src": "contracts\\libs\\dexfactory.sol:465"
+            },
+            {
+              "label": "_feeToSetter",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_address",
+              "contract": "PancakeSwapFactory",
+              "src": "contracts\\libs\\dexfactory.sol:466"
+            },
+            {
+              "label": "_getPair",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_address))",
+              "contract": "PancakeSwapFactory",
+              "src": "contracts\\libs\\dexfactory.sol:468"
+            },
+            {
+              "label": "_allPairs",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "PancakeSwapFactory",
+              "src": "contracts\\libs\\dexfactory.sol:469"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_address)": {
+              "label": "mapping(address => address)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_address))": {
+              "label": "mapping(address => mapping(address => address))",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:PancakeSwapPair": {
+        "src": "contracts\\libs\\dexfactory.sol:230",
+        "version": {
+          "withMetadata": "3ff74c25f5605ff0dae87d5af47ef453a41356583a78940223e1f5cd6e9dc1f3",
+          "withoutMetadata": "ea6877d789e4068b208d067ba1e7a180da063974ee99793d051c9961d555638b",
+          "linkedWithoutMetadata": "ea6877d789e4068b208d067ba1e7a180da063974ee99793d051c9961d555638b"
+        },
+        "inherit": [
+          "contracts/libs/dexfactory.sol:PancakeSwapERC20",
+          "contracts/libs/dexfactory.sol:IPancakeSwapPair",
+          "contracts/libs/dexfactory.sol:IPancakeSwapERC20"
+        ],
+        "libraries": [
+          "contracts/libs/dexfactory.sol:SafeMath",
+          "contracts/libs/dexfactory.sol:UQ112x112",
+          "contracts/libs/dexfactory.sol:Math"
+        ],
+        "methods": [
+          "()",
+          "initialize(address,address)",
+          "factory()",
+          "token0()",
+          "token1()",
+          "getReserves()",
+          "price0CumulativeLast()",
+          "price1CumulativeLast()",
+          "kLast()",
+          "mint(address)",
+          "burn(address)",
+          "swap(uint256,uint256,address,bytes)",
+          "skim(address)",
+          "sync()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "PancakeSwapPair",
+            "src": "contracts\\libs\\dexfactory.sol:257"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "unlocked",
+            "src": "contracts\\libs\\dexfactory.sol:249"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:102"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_string_storage",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:103"
+            },
+            {
+              "label": "_decimals",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint8",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:104"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:105"
+            },
+            {
+              "label": "_balanceOf",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:106"
+            },
+            {
+              "label": "_allowance",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:107"
+            },
+            {
+              "label": "_DOMAIN_SEPARATOR",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_bytes32",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:109"
+            },
+            {
+              "label": "_PERMIT_TYPEHASH",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_bytes32",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:111"
+            },
+            {
+              "label": "_nonces",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "PancakeSwapERC20",
+              "src": "contracts\\libs\\dexfactory.sol:112"
+            },
+            {
+              "label": "_factory",
+              "offset": 0,
+              "slot": "9",
+              "type": "t_address",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:237"
+            },
+            {
+              "label": "_token0",
+              "offset": 0,
+              "slot": "10",
+              "type": "t_address",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:238"
+            },
+            {
+              "label": "_token1",
+              "offset": 0,
+              "slot": "11",
+              "type": "t_address",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:239"
+            },
+            {
+              "label": "_reserve0",
+              "offset": 0,
+              "slot": "12",
+              "type": "t_uint112",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:241"
+            },
+            {
+              "label": "_reserve1",
+              "offset": 14,
+              "slot": "12",
+              "type": "t_uint112",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:242"
+            },
+            {
+              "label": "_blockTimestampLast",
+              "offset": 28,
+              "slot": "12",
+              "type": "t_uint32",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:243"
+            },
+            {
+              "label": "_price0CumulativeLast",
+              "offset": 0,
+              "slot": "13",
+              "type": "t_uint256",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:245"
+            },
+            {
+              "label": "_price1CumulativeLast",
+              "offset": 0,
+              "slot": "14",
+              "type": "t_uint256",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:246"
+            },
+            {
+              "label": "_kLast",
+              "offset": 0,
+              "slot": "15",
+              "type": "t_uint256",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:247"
+            },
+            {
+              "label": "unlocked",
+              "offset": 0,
+              "slot": "16",
+              "type": "t_uint256",
+              "contract": "PancakeSwapPair",
+              "src": "contracts\\libs\\dexfactory.sol:249"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes32": {
+              "label": "bytes32",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint112": {
+              "label": "uint112",
+              "numberOfBytes": "14"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint32": {
+              "label": "uint32",
+              "numberOfBytes": "4"
+            },
+            "t_uint8": {
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:SafeMath": {
+        "src": "contracts\\libs\\dexfactory.sol:534",
+        "version": {
+          "withMetadata": "7c9b27039c590ddac08ab35bb0cddd0cb550f3046eaa7c05122d0e0659997a97",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexfactory.sol:UQ112x112": {
+        "src": "contracts\\libs\\dexfactory.sol:575",
+        "version": {
+          "withMetadata": "194b6377a8d11e2d4e3db06c936c9c79ec1c8c1587c8d47a86d9e3b3ad77cc8d",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "hardhat/console.sol:console": {
+        "src": "hardhat\\console.sol:4",
+        "version": {
+          "withMetadata": "3e987e53a505ed70cff6daed1917694e1573decf3c1fe766c121d8d5e5497d13",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      }
+    },
+    {
+      "contracts/libs/dexRouter.sol:IERC20": {
+        "src": "contracts\\libs\\dexRouter.sol:25",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:IPancakeSwapERC20": {
+        "src": "contracts\\libs\\dexRouter.sol:41",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transfer(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "DOMAIN_SEPARATOR()",
+          "PERMIT_TYPEHASH()",
+          "nonces(address)",
+          "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:IPancakeSwapFactory": {
+        "src": "contracts\\libs\\dexRouter.sol:7",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "feeTo()",
+          "feeToSetter()",
+          "init_code_pair_hash()",
+          "getPair(address,address)",
+          "allPairs()",
+          "allPairsLength()",
+          "createPair(address,address)",
+          "setFeeTo(address)",
+          "setFeeToSetter(address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:IPancakeSwapPair": {
+        "src": "contracts\\libs\\dexRouter.sol:63",
+        "inherit": [
+          "contracts/libs/dexRouter.sol:IPancakeSwapERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "factory()",
+          "token0()",
+          "token1()",
+          "getReserves()",
+          "price0CumulativeLast()",
+          "price1CumulativeLast()",
+          "kLast()",
+          "mint(address)",
+          "burn(address)",
+          "swap(uint256,uint256,address,bytes)",
+          "skim(address)",
+          "sync()",
+          "initialize(address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:IPancakeSwapRouter": {
+        "src": "contracts\\libs\\dexRouter.sol:94",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "factory()",
+          "WETH()",
+          "addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256)",
+          "addLiquidityETH(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidity(address,address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityETH(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityWithPermit(address,address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "removeLiquidityETHWithPermit(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "swapExactTokensForTokens(uint256,uint256,address[],address,uint256)",
+          "swapTokensForExactTokens(uint256,uint256,address[],address,uint256)",
+          "swapExactETHForTokens(uint256,address[],address,uint256)",
+          "swapTokensForExactETH(uint256,uint256,address[],address,uint256)",
+          "swapExactTokensForETH(uint256,uint256,address[],address,uint256)",
+          "swapETHForExactTokens(uint256,address[],address,uint256)",
+          "quote(uint256,uint256,uint256)",
+          "getAmountOut(uint256,uint256,uint256)",
+          "getAmountIn(uint256,uint256,uint256)",
+          "getAmountsOut(uint256,address[])",
+          "getAmountsIn(uint256,address[])",
+          "removeLiquidityETHSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256)",
+          "swapExactETHForTokensSupportingFeeOnTransferTokens(uint256,address[],address,uint256)",
+          "swapExactTokensForETHSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:IWETH": {
+        "src": "contracts\\libs\\dexRouter.sol:226",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "deposit()",
+          "transfer(address,uint256)",
+          "withdraw(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:PancakeSwapLibrary": {
+        "src": "contracts\\libs\\dexRouter.sol:715",
+        "version": {
+          "withMetadata": "9aecbaa1a62817bd9da93121e2271e609b36e1f6ea4bceb3ddec05f7e3992e84",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [
+          "contracts/libs/dexRouter.sol:SafeMath"
+        ],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:PancakeSwapRouter": {
+        "src": "contracts\\libs\\dexRouter.sol:232",
+        "version": {
+          "withMetadata": "57433cea6a24e6edf679b34c6552a11d94b6847d10418a3d98dbdfc9223580e1",
+          "withoutMetadata": "179a3622f908eb7adc7fbc42feb0a4ab2102b43c86847d1bca156c210cba11e0",
+          "linkedWithoutMetadata": "179a3622f908eb7adc7fbc42feb0a4ab2102b43c86847d1bca156c210cba11e0"
+        },
+        "inherit": [
+          "contracts/libs/dexRouter.sol:IPancakeSwapRouter"
+        ],
+        "libraries": [
+          "contracts/libs/dexRouter.sol:SafeMath",
+          "contracts/libs/dexRouter.sol:PancakeSwapLibrary",
+          "contracts/libs/dexRouter.sol:TransferHelper"
+        ],
+        "methods": [
+          "(address,address)",
+          "()",
+          "factory()",
+          "WETH()",
+          "addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256)",
+          "addLiquidityETH(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidity(address,address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityETH(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityWithPermit(address,address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "removeLiquidityETHWithPermit(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "removeLiquidityETHSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256)",
+          "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32)",
+          "swapExactTokensForTokens(uint256,uint256,address[],address,uint256)",
+          "swapTokensForExactTokens(uint256,uint256,address[],address,uint256)",
+          "swapExactETHForTokens(uint256,address[],address,uint256)",
+          "swapTokensForExactETH(uint256,uint256,address[],address,uint256)",
+          "swapExactTokensForETH(uint256,uint256,address[],address,uint256)",
+          "swapETHForExactTokens(uint256,address[],address,uint256)",
+          "swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256)",
+          "swapExactETHForTokensSupportingFeeOnTransferTokens(uint256,address[],address,uint256)",
+          "swapExactTokensForETHSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256)",
+          "quote(uint256,uint256,uint256)",
+          "getAmountOut(uint256,uint256,uint256)",
+          "getAmountIn(uint256,uint256,uint256)",
+          "getAmountsOut(uint256,address[])",
+          "getAmountsIn(uint256,address[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "PancakeSwapRouter",
+            "src": "contracts\\libs\\dexRouter.sol:243"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "factoryAddr",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "PancakeSwapRouter",
+              "src": "contracts\\libs\\dexRouter.sol:235"
+            },
+            {
+              "label": "WETHAddr",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_address",
+              "contract": "PancakeSwapRouter",
+              "src": "contracts\\libs\\dexRouter.sol:236"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:SafeMath": {
+        "src": "contracts\\libs\\dexRouter.sol:701",
+        "version": {
+          "withMetadata": "419b59883586bb65ac2ccc17665ffde91aa5beb46ea62d096b94c76e052c0d0f",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "contracts/libs/dexRouter.sol:TransferHelper": {
+        "src": "contracts\\libs\\dexRouter.sol:797",
+        "version": {
+          "withMetadata": "d30914bda5b9f738e54ae0d7d5edbcc20b739b05b3d90a3c0d03d4caf3892930",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      },
+      "hardhat/console.sol:console": {
+        "src": "hardhat\\console.sol:4",
+        "version": {
+          "withMetadata": "3e987e53a505ed70cff6daed1917694e1573decf3c1fe766c121d8d5e5497d13",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.20"
+      }
+    },
+    {
       "contracts/libs/dexRouter.sol:IERC20": {
         "src": "contracts\\libs\\dexRouter.sol:25",
         "inherit": [],
