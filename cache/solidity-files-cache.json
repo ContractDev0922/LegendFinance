@@ -1468,55 +1468,12 @@
         "IWETH"
       ]
     },
-    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\mocks\\WETH.sol": {
-      "lastModificationDate": 1696786431191,
-      "contentHash": "4f08768c7d2b99eaaac24951709682af",
-      "sourceName": "contracts/mocks/WETH.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 1
-          },
-          "evmVersion": "berlin",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22"
-      ],
-      "artifacts": [
-        "WETH"
-      ]
-    },
     "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\TokenBridge.sol": {
-      "lastModificationDate": 1697265080936,
-      "contentHash": "cfa92abbb545de4cf27b769450edf58c",
+      "lastModificationDate": 1697462485476,
+      "contentHash": "39ebab6019b87c6da2295adba175dbbd",
       "sourceName": "contracts/TokenBridge.sol",
       "solcConfig": {
-        "version": "0.8.15",
+        "version": "0.8.4",
         "settings": {
           "optimizer": {
             "enabled": true,
@@ -1555,10 +1512,1627 @@
         "./interfaces/ITokenBridge.sol"
       ],
       "versionPragmas": [
-        "0.8.15"
+        "0.8.4"
       ],
       "artifacts": [
         "TokenBridge"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\libraries\\BytesLib.sol": {
+      "lastModificationDate": 1697376889819,
+      "contentHash": "f989e8822d7ae79eaf51b571775aa69a",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/libraries/BytesLib.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0 <0.9.0"
+      ],
+      "artifacts": [
+        "BytesLib"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\LzApp.sol": {
+      "lastModificationDate": 1697376889786,
+      "contentHash": "81a58a5e6829c2c9cedb429061202ca0",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/LzApp.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "./interfaces/ILayerZeroReceiver.sol",
+        "./interfaces/ILayerZeroUserApplicationConfig.sol",
+        "./interfaces/ILayerZeroEndpoint.sol",
+        "../libraries/BytesLib.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LzApp"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroEndpoint.sol": {
+      "lastModificationDate": 1697376889819,
+      "contentHash": "86ef0154470f2f264e61fce225276ff9",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroEndpoint.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./ILayerZeroUserApplicationConfig.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "ILayerZeroEndpoint"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroUserApplicationConfig.sol": {
+      "lastModificationDate": 1697376889819,
+      "contentHash": "1e1af18cedcca5a5e82e96cdbe314d95",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroUserApplicationConfig.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "ILayerZeroUserApplicationConfig"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\interfaces\\ILayerZeroReceiver.sol": {
+      "lastModificationDate": 1697376889835,
+      "contentHash": "ed9a0d4dbd5e18a6ced83725df0db4f3",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/interfaces/ILayerZeroReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "ILayerZeroReceiver"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\NonblockingLzApp.sol": {
+      "lastModificationDate": 1697376889753,
+      "contentHash": "0ece69e788b990bf23d8262678fe4418",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./LzApp.sol",
+        "../libraries/ExcessivelySafeCall.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "NonblockingLzApp"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\libraries\\ExcessivelySafeCall.sol": {
+      "lastModificationDate": 1697376889786,
+      "contentHash": "f86bc84e51314928295d9e72682a2568",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/libraries/ExcessivelySafeCall.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.6"
+      ],
+      "artifacts": [
+        "ExcessivelySafeCall"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\ERC20Detailed.sol": {
+      "lastModificationDate": 1696628767251,
+      "contentHash": "a54ef207a4fae115cc6b4704879f9e05",
+      "sourceName": "contracts/libs/ERC20Detailed.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "ERC20Detailed"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@layerzerolabs\\solidity-examples\\contracts\\lzApp\\libs\\LzLib.sol": {
+      "lastModificationDate": 1697376889736,
+      "contentHash": "d9f2cc63e84dd0cd244a5adbbfcda44d",
+      "sourceName": "contracts/.deps/npm/@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0"
+      ],
+      "artifacts": [
+        "LzLib"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1697376889837,
+      "contentHash": "d3c790edc9ccf808a17c5a6cd13614fd",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1697376889871,
+      "contentHash": "01c847e2af51f468cb66d9ed83bc3cec",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\security\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1697376889753,
+      "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Permit.sol": {
+      "lastModificationDate": 1697376889770,
+      "contentHash": "da291753fa4641f2c5837bfc4aa4c01b",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\token\\ERC20\\utils\\SafeERC20.sol": {
+      "lastModificationDate": 1697376889753,
+      "contentHash": "697fd27924863e77c17dace2179018b2",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../extensions/IERC20Permit.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
+      "lastModificationDate": 1697376889786,
+      "contentHash": "5517c8678c18eb1a8ba58810e7ca39ca",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\.deps\\npm\\@openzeppelin\\contracts\\utils\\Address.sol": {
+      "lastModificationDate": 1697376889770,
+      "contentHash": "79c699f80eb8a9b168cb34e37816f894",
+      "sourceName": "contracts/.deps/npm/@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\interfaces\\IUniswapV2Factory.sol": {
+      "lastModificationDate": 1696628767298,
+      "contentHash": "dc7e939999d3ee20416042160ff4a422",
+      "sourceName": "contracts/interfaces/IUniswapV2Factory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "IUniswapV2Factory"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\dexfactory.sol": {
+      "lastModificationDate": 1696629173242,
+      "contentHash": "c706b148cd70972c653e90f61d7d2332",
+      "sourceName": "contracts/libs/dexfactory.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "IERC20",
+        "IPancakeSwapCallee",
+        "IPancakeSwapERC20",
+        "IPancakeSwapFactory",
+        "IPancakeSwapPair",
+        "Math",
+        "PancakeSwapERC20",
+        "PancakeSwapFactory",
+        "PancakeSwapPair",
+        "SafeMath",
+        "UQ112x112"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1697247029836,
+      "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\dexRouter.sol": {
+      "lastModificationDate": 1696628997737,
+      "contentHash": "6c09ce479b30da36cea41e869e27ac2b",
+      "sourceName": "contracts/libs/dexRouter.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "IERC20",
+        "IPancakeSwapERC20",
+        "IPancakeSwapFactory",
+        "IPancakeSwapPair",
+        "IPancakeSwapRouter",
+        "IWETH",
+        "PancakeSwapLibrary",
+        "PancakeSwapRouter",
+        "SafeMath",
+        "TransferHelper"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\interfaces\\IUniswapV2Pair.sol": {
+      "lastModificationDate": 1696628767251,
+      "contentHash": "e32842077859206e3aed1f962b0bde2e",
+      "sourceName": "contracts/interfaces/IUniswapV2Pair.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "IUniswapV2Pair"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\interfaces\\IUniswapV2Router.sol": {
+      "lastModificationDate": 1696629169841,
+      "contentHash": "800377e2605203e349e0da6a97a0f792",
+      "sourceName": "contracts/interfaces/IUniswapV2Router.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "IUniswapV2Router01",
+        "IUniswapV2Router02"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\MinterRole.sol": {
+      "lastModificationDate": 1696628767018,
+      "contentHash": "9259d8f72a620cfe56ef80a1c6ecf38a",
+      "sourceName": "contracts/libs/MinterRole.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./Roles.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "MinterRole"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\Roles.sol": {
+      "lastModificationDate": 1696628766937,
+      "contentHash": "190a8b2d6ddd38629e3a406635593a9e",
+      "sourceName": "contracts/libs/Roles.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "Roles"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\SafeMathInt.sol": {
+      "lastModificationDate": 1696628766828,
+      "contentHash": "64f4bb17c55c32df52ac240f3d9659b8",
+      "sourceName": "contracts/libs/SafeMathInt.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.10"
+      ],
+      "artifacts": [
+        "SafeMathInt"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\weth.sol": {
+      "lastModificationDate": 1696628766363,
+      "contentHash": "cebc4d754fd019772fa871c97e5c46ef",
+      "sourceName": "contracts/libs/weth.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "WETH"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\UniswapV2Library.sol": {
+      "lastModificationDate": 1696629169591,
+      "contentHash": "b7329c26c0045d0e3f6e82b27c21986d",
+      "sourceName": "contracts/libs/UniswapV2Library.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./dexfactory.sol",
+        "../interfaces/IUniswapV2Factory.sol"
+      ],
+      "versionPragmas": [
+        "0.8.4"
+      ],
+      "artifacts": [
+        "UniswapV2Library"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\IBEP20.sol": {
+      "lastModificationDate": 1696628767220,
+      "contentHash": "1b0e194c1ebb682eb7a1f2cdbbc89318",
+      "sourceName": "contracts/libs/IBEP20.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.4"
+      ],
+      "artifacts": [
+        "IBEP20"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\SafeMath.sol": {
+      "lastModificationDate": 1696628766906,
+      "contentHash": "d4a8252029717147685f734bea500ea6",
+      "sourceName": "contracts/libs/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.4"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\StableMath.sol": {
+      "lastModificationDate": 1696629169653,
+      "contentHash": "bb99eadf4578c7086277fe6d03ad1a27",
+      "sourceName": "contracts/libs/StableMath.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "0.8.4"
+      ],
+      "artifacts": [
+        "StableMath"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\TransferHelper.sol": {
+      "lastModificationDate": 1696628766521,
+      "contentHash": "2ba217243c087088e2759296d1950964",
+      "sourceName": "contracts/libs/TransferHelper.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.4"
+      ],
+      "artifacts": [
+        "TransferHelper"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\BUSD.sol": {
+      "lastModificationDate": 1696629173242,
+      "contentHash": "e77cb4cb94b92d5a18ebef5617c19cff",
+      "sourceName": "contracts/libs/BUSD.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.5.16"
+      ],
+      "artifacts": [
+        "BEP20Token",
+        "Context",
+        "IBEP20",
+        "Ownable",
+        "SafeMath"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\ERC20.sol": {
+      "lastModificationDate": 1696629171428,
+      "contentHash": "d8b9fc823edac2df8826cdfe8cc3bbab",
+      "sourceName": "contracts/libs/ERC20.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Context",
+        "ERC20",
+        "SafeMath"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\IExchange.sol": {
+      "lastModificationDate": 1696629169684,
+      "contentHash": "560276d53519a80e2af8461db6d9f678",
+      "sourceName": "contracts/libs/IExchange.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.12"
+      ],
+      "artifacts": [
+        "IPancakeSwapFactory",
+        "IPancakeSwapPair",
+        "IPancakeSwapRouter"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\staking.sol": {
+      "lastModificationDate": 1696628913650,
+      "contentHash": "ab6d94540f67046ac178d2f9f60fadc6",
+      "sourceName": "contracts/libs/staking.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./IExchange.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.12"
+      ],
+      "artifacts": [
+        "Context",
+        "IERC20",
+        "Ownable",
+        "SafeMath",
+        "Staking"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\libs\\sharkbaby.sol": {
+      "lastModificationDate": 1696628957506,
+      "contentHash": "cb98ddd996cc7a6fdb41c27e50cd16bf",
+      "sourceName": "contracts/libs/sharkbaby.sol",
+      "solcConfig": {
+        "version": "0.6.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./IExchange.sol"
+      ],
+      "versionPragmas": [
+        "0.6.12"
+      ],
+      "artifacts": [
+        "Context",
+        "Ownable",
+        "SHARKBABYOKEN",
+        "SafeMath"
       ]
     }
   }

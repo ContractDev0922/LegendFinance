@@ -8,8 +8,6 @@ const { expect } = require('chai');
 const chalk = require('chalk');
 const fs = require('fs');
 
-const currentStatus = MSG_STEPS.DEPLOY;
-
 // const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay * 1000));
 
 let owner, user1, user2;
@@ -47,18 +45,18 @@ function displayResult(name, result) {
 }
 
 const chainName = (chainId) => {
-  switch (chainId) {
-    case 97:
-      return 'Binance Smart Chain (testnet)';
-    case 4002:
-      return 'Fantom Test Chain';
-    case 80001:
-      return 'Polygon Mumbai Test Chain';
-    case 421613:
-      return 'Arbitrum Test Chain';
-    default:
-      return 'Unknown';
-  }
+    switch (chainId) {
+        case 97:
+        return 'Binance Smart Chain (testnet)';
+        case 4002:
+        return 'Fantom Test Chain';
+        case 80001:
+        return 'Polygon Mumbai Test Chain';
+        case 421613:
+        return 'Arbitrum Test Chain';
+        default:
+        return 'Unknown';
+    }
 };
 
 async function main() {

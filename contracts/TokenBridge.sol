@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BUSL-1.1
 
-pragma solidity 0.8.20;
+pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -44,7 +44,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
     constructor(
         address _layerZeroEndpoint,
         uint16 _aptosChainId
-    ) NonblockingLzApp(_layerZeroEndpoint) Ownable(msg.sender) {
+    ) NonblockingLzApp(_layerZeroEndpoint) {
         aptosChainId = _aptosChainId;
     }
 
@@ -94,9 +94,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
     }
 
     function quoteForSend(LzLib.CallParams calldata _callParams, bytes calldata _adapterParams)
-        external
-        view
-        returns (uint nativeFee, uint zroFee)
+        external view override returns (uint nativeFee, uint zroFee)
     {
         _checkAdapterParams(_adapterParams);
         bytes memory payload = _encodeSendPayload(address(0), bytes32(0), 0);
