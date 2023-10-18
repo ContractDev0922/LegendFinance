@@ -26,10 +26,10 @@ module.exports = {
     flat: true,
   },
   etherscan: {
-    // apiKey: apiKeyForEther,
+    apiKey: apiKeyForEther,
     // apiKey: apiKeyForBsc,
     // apiKey: apiKeyForFantom,
-    apiKey: apiKeyForPolygon,
+    // apiKey: apiKeyForPolygon,
   },
   gasReporter: {
     currency: 'USD',
@@ -55,21 +55,45 @@ module.exports = {
     dexRouter: {
       97: '0x746b2a0C701Aba855f36Ead0128cD2853cb1fbAC',
       4002: '0xFBc36c21F2EB2E2EF7cC4daE84Be603aA204984a',
-      80001: '0x2FfF1Db35d03Df4da80697EC6781E12a85af000D',
-      11155111: '',
+      80001: '0x27A36ab2824FB846A751Ea60461485dEA8e70E0F',
+      11155111: '0xa17B32723181eF3dEb2934208F1392003b4609D0',
     },
     dexFactory: {
       97: '0x451E07DbFb22b3943cD9EDEf8FEbD8b5cB4Cc488',
       4002: '0x7a52c4C485b9A0F805a790C0801fBf14956fa41c',
-      80001: '',
-      11155111: '',
+      80001: '0xfEa7d5F3f8e2B9A96AE8324489371Ae8523185a7',
+      11155111: '0xa76e41bC92F1277e581EA0051bF5A1f27343Bc73',
     },
     dexWeth: {
       97: '0x628D69da33e24AD373E5089E81191660AbD29f5d',
       4002: '0x6Fe295D3f5F7fFd809F6cc0746D8936496305017',
-      80001: '',
-      11155111: '',
-    }
+      80001: '0x8FC2b28Db17146bE8bb28194Cd5FE5892A88c879',
+      11155111: '0x049a53c57f5214247AfB611EBB88D8Cd745eb4Bc',
+    },
+    MPL: {
+      11155111: ''
+    }, // maple token sepolia testnet
+    CHNG: {
+      11155111: ''
+    }, // chainge token sepolia testnet
+    SWLO: {
+      97: ''
+    }, // swello token bnb testnet
+    ADMT: {
+      97: ''
+    }, // adamant token bnb testnet
+    SPR: {
+      4002: ''
+    }, // superrare token fantom testnet
+    AHA: {
+      4002: ''
+    }, //  aha token fantom testnet
+    LIT: {
+      80001: ''
+    }, // litentry token mumbai testnet
+    PST: {
+      80001: ''
+    }, // polkastarterToken mumbai testnet
   },
   defaultNetwork: "hardhat",
 
@@ -80,7 +104,7 @@ module.exports = {
     },
     localhost: {
       url: "http://127.0.0.1:8545"
-    },
+    },    
     bsctest: { // 97
       url: `https://bsc-testnet.public.blastapi.io`,
       accounts: [privateKey, privateKey2, privateKey3]
@@ -96,6 +120,10 @@ module.exports = {
     },
     arbitrumtest: { // 421613
       url: `https://arbitrum-goerli.infura.io/v3/8dd6d18540ea448ab5066eac3933cdc8`,
+      accounts: [privateKey, privateKey2, privateKey3]
+    },
+    sepolia: { // 11155111
+      url: `https://ethereum-sepolia.blockpi.network/v1/rpc/public`,
       accounts: [privateKey, privateKey2, privateKey3]
     }
   },
@@ -133,6 +161,16 @@ module.exports = {
       },
       {
         version: '0.8.4',
+        settings: {
+          optimizer: {
+            enabled: optimizerEnabled,
+            runs: 1,
+          },
+          evmVersion: 'berlin',
+        }
+      },
+      {
+        version: '0.8.0',
         settings: {
           optimizer: {
             enabled: optimizerEnabled,
