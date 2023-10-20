@@ -26,10 +26,10 @@ module.exports = {
     flat: true,
   },
   etherscan: {
-    apiKey: apiKeyForEther,
+    // apiKey: apiKeyForEther,
     // apiKey: apiKeyForBsc,
     // apiKey: apiKeyForFantom,
-    // apiKey: apiKeyForPolygon,
+    apiKey: apiKeyForPolygon,
   },
   gasReporter: {
     currency: 'USD',
@@ -71,29 +71,53 @@ module.exports = {
       11155111: '0x049a53c57f5214247AfB611EBB88D8Cd745eb4Bc',
     },
     MPL: {
-      11155111: ''
+      11155111: '0x871ab0e9597E8b31694e848222E7a1D7F97321E3'
     }, // maple token sepolia testnet
+    MPL_ETH: {
+      11155111: '0x80831E3E95496Bb4945164bF7D7409DeD7e65424'
+    },
     CHNG: {
-      11155111: ''
+      11155111: '0x556dd7F702B9E190d1c5FCd1D06AeB5C2d657C71'
     }, // chainge token sepolia testnet
+    CHNG_ETH: {
+      11155111: '0xFc57FbB97D442319D2Df7dC40B9F9E3035127c9E'
+    },
     SWLO: {
-      97: ''
+      97: '0x66E8A1123c2ce776A3b63C39A584171474f38f82'
     }, // swello token bnb testnet
+    SWLO_BNB: {
+      97: '0x79B388887874104EE1CeC4F0670433Fa7f61808A'
+    },
     ADMT: {
-      97: ''
+      97: '0x1dC5777E9C9B55deBCF75Ec0473d875e5cda3E7f'
     }, // adamant token bnb testnet
+    ADMT_BNB: {
+      97: '0x3a96A5e01960e5bf87e1a24cD930C5CB3BDDB8ea'
+    },
     SPR: {
-      4002: ''
+      4002: '0x18AA1c210f88B706BEFfD5562d54512868CA9739'
     }, // superrare token fantom testnet
+    SPR_FTM: {
+      4002: '0xdf21a90e3c9579b7a3483fac000de1c6f66df44f'
+    },
     AHA: {
-      4002: ''
+      4002: '0x0554621aDfAedC79aB8ABA2433Db20aBB9c85DAe'
     }, //  aha token fantom testnet
+    AHA_FTM: {
+      4002: '0xd2fdde3660b4b3e6d1e85628a10eb05ef28e82fd'
+    },
     LIT: {
-      80001: ''
+      80001: '0xd769aA464D4E0c1d19ff894F5f464a688A564A48'
     }, // litentry token mumbai testnet
+    LIT_MATIC: {
+      80001: '0x7a6b91d7ae79a19d871adfd5f4fd99df30a57450'
+    },
     PST: {
-      80001: ''
+      80001: '0x51824Eba79A051467FbCBEe613dC42DEEf1508E4'
     }, // polkastarterToken mumbai testnet
+    PST_MATIC: {
+      80001: '0xd052d7f997fc437983ca7705722bb83bb6975783'
+    }
   },
   defaultNetwork: "hardhat",
 

@@ -1,0 +1,202 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x556dd7F702B9E190d1c5FCd1D06AeB5C2d657C71",
+      "txHash": "0xdf676c456565ed4bce61c92f8eb40c932fd5deb1f849e129eef85656ed3693b8",
+      "kind": "uups"
+    },
+    {
+      "address": "0xd769aA464D4E0c1d19ff894F5f464a688A564A48",
+      "txHash": "0x54e08f35a83f83123a320f6515c0b75935180d06c0ba94432c897017cf85070f",
+      "kind": "uups"
+    },
+    {
+      "address": "0x51824Eba79A051467FbCBEe613dC42DEEf1508E4",
+      "txHash": "0xa1600f8d5dd188c560269ab5de99abb2a0b833f6f9c5451342ca4f6cad23bd62",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "379af5f3dd3147980a7d57a53eff2428d93ca4bab8c7824c804ce3c7ae1a9df5": {
+      "address": "0x871ab0e9597E8b31694e848222E7a1D7F97321E3",
+      "txHash": "0x032a363747d8ff3747a180b5eaa388d2eea52280eb24561c3e6983547cdf9a7d",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\ERC1967\\ERC1967UpgradeUpgradeable.sol:169"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\UUPSUpgradeable.sol:111"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:151"
+          },
+          {
+            "label": "_allowances",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:152"
+          },
+          {
+            "label": "faucetedTime",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:153"
+          },
+          {
+            "label": "PancakeSwapRouter",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_contract(IPancakeSwapRouter)2915",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:155"
+          },
+          {
+            "label": "PancakeSwapV2Pair",
+            "offset": 0,
+            "slot": "205",
+            "type": "t_address",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:156"
+          },
+          {
+            "label": "_totalSupply",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_uint256",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:158"
+          },
+          {
+            "label": "_decimals",
+            "offset": 0,
+            "slot": "207",
+            "type": "t_uint8",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:159"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "208",
+            "type": "t_string_storage",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:160"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "209",
+            "type": "t_string_storage",
+            "contract": "LegendToken",
+            "src": "contracts\\token\\LegendToken.sol:161"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(IPancakeSwapRouter)2915": {
+            "label": "contract IPancakeSwapRouter",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}
