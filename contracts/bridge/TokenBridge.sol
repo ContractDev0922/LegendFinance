@@ -1,16 +1,15 @@
 // SPDX-License-Identifier: BUSL-1.1
-pragma solidity 0.8.4;
+pragma solidity 0.8.20;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol";
 import "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
-import "./bridge/interfaces/IWETH.sol";
-import "./bridge/interfaces/ITokenBridge.sol";
-import "./token/interfaces/IExchange.sol";
-import "./token/interfaces/IToken.sol";
-
+import "./interfaces/IWETH.sol";
+import "./interfaces/ITokenBridge.sol";
+import "../token/interfaces/IExchange.sol";
+import "../token/interfaces/IToken.sol";
 
 // Mumbai (Polygon Testnet)
 // chainId: 10109
@@ -38,23 +37,20 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
 
     uint public bridgeFeeBP;
 
-    mapping(address => uint64) public tvlSDs; // token address => tvl
+    mapping(address => uint) public tvlSDs; // token address => tvl
     mapping(address => bool) public supportedTokens;
     mapping(address => bool) public pausedTokens; // token address => paused
-    mapping(address => uint) public ld2sdRates; // token address => rate
-    // mapping(address => uint) public endpointToCid; // layerzero endpoint address => chain id
     mapping(uint => address) public priceFeed; // chain id => ETH-USD address
-    mapping(uint => bool) public enableChain; // whether lzDestchain id is enabled or not
+    mapping(uint16 => bool) public enableChain; // whether lzDestchain id is enabled or not
     
     address public weth;
-    // address public __lzEndpoint;
 
     bool public useCustomAdapterParams;
     bool public globalPaused;
     bool public emergencyWithdrawEnabled;
     uint public emergencyWithdrawTime;
 
-    AggregatorV3Interface internal dataFeed;
+    AggregatorV3Interface public dataFeed;
 
     modifier whenNotPaused(address _token) {
         require(!globalPaused && !pausedTokens[_token], "TokenBridge: paused");
@@ -75,20 +71,18 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         priceFeed[80001] = 0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada; // MATIC-USD
 
         uint cid = getChainID();
-        dataFeedSrc = AggregatorV3Interface(priceFeed[cid]);
-        // endpointToCid[_layerZeroEndpoint] = _lzDestChainId;
-        // __lzEndpoint = _layerZeroEndpoint;
+        dataFeed = AggregatorV3Interface(priceFeed[cid]);
     }
 
     function sendTokenToDest(
-        uint _toDestChain,
+        uint16 _toLzDestChain,
         address _tokenIn,
         uint _amountIn,
         address _tokenOut,
         address _toAddress,
         LzLib.CallParams calldata _callParams,
         bytes calldata _adapterParams
-    ) external payable override whenNotPaused(_token) nonReentrant {
+    ) external payable override whenNotPaused(_tokenIn) nonReentrant {
         require(
             supportedTokens[_tokenIn] && supportedTokens[_tokenOut], 
             "TokenBridge: input token and output token are not supported"
@@ -99,17 +93,16 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         // add tvl
         require(_amountIn > 0, "TokenBridge: amountIn must be greater than 0");
         tvlSDs[_tokenIn] += _amountIn;
-        uint dec = _tokenDecimals(_tokenIn);
         // send to remote destination chain
         _sendToken(
-            _toDestChain, _priceFeedIn, _tokenOut, _toAddress, 
+            _toLzDestChain, _priceFeedIn, _tokenOut, _toAddress, 
             _callParams, _adapterParams, msg.value
         );
         emit Send(_tokenIn, msg.sender, _toAddress, _amountIn);
     }
 
     function sendETHToDest(
-        uint _toDestChain,
+        uint16 _toLzDestChain,
         address _toAddress,
         uint _amountIn,
         LzLib.CallParams calldata _callParams,
@@ -124,30 +117,30 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         IWETH(_weth).deposit{value: _amountIn}();
         tvlSDs[_weth] += _amountIn;
 
-        uint pn = getChainlinkDataFeedLatestAnswer();
+        int np = getChainlinkDataFeedLatestAnswer();
+        uint pn = (np < 0)? type(uint).max - uint(np) + 1 : uint(np);
         // send to remote destination chain
         _sendToken(
-            _toDestChain, pn * _amountIn, address(0x0), _toAddress,
+            _toLzDestChain, pn * _amountIn, address(0x0), _toAddress,
             _callParams, _adapterParams, msg.value - _amountIn
         );
         emit Send(address(0), msg.sender, _toAddress, _amountIn);
     }
 
     function quoteForSend(
-        uint _toDestChain,
+        uint16 _toLzDestChain,
         LzLib.CallParams calldata _callParams, 
         bytes calldata _adapterParams
-    ) external view override returns (uint nativeFee, uint zroFee)
-    {
+    ) external view override returns(uint nativeFee, uint zroFee) {
         _checkAdapterParams(_adapterParams);
-        bytes memory payload = _encodeSendPayload(0, address(0), bytes32(0));
+        bytes memory payload = _encodeSendPayload(0, address(0), address(0));
         bool payInZRO = _callParams.zroPaymentAddress != address(0);
         return
-            lzEndpoint.estimateFees(_toDestChain, address(this), payload, payInZRO, _adapterParams);
+            lzEndpoint.estimateFees(_toLzDestChain, address(this), payload, payInZRO, _adapterParams);
     }
 
     function _sendToken(
-        uint _toDestChain,
+        uint16 _toLzDestChain,
         uint _priceFeedIn,
         address _tokenOut,
         address _toAddress,
@@ -158,7 +151,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         _checkAdapterParams(_adapterParams);
         bytes memory payload = _encodeSendPayload(_priceFeedIn, _tokenOut, _toAddress);
         _lzSend(
-            _toDestChain,
+            _toLzDestChain,
             payload,
             _callParams.refundAddress,
             _callParams.zroPaymentAddress,
@@ -167,12 +160,12 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         );
     }
 
-    function trustAddress(uint _lzDestChainId, address _otherContract) public onlyOwner {
+    function trustAddress(uint16 _lzDestChainId, address _otherContract) public onlyOwner {
         require(enableChain[_lzDestChainId], "TokenBridge: this dest chain id is not enabled");
         trustedRemoteLookup[_lzDestChainId] = abi.encodePacked(_otherContract, address(this));
     }
 
-    function setEnableChain(uint _lzDestChainId, bool enable) external onlyOwner {
+    function setEnableChain(uint16 _lzDestChainId, bool enable) external onlyOwner {
         enableChain[_lzDestChainId] = enable;
     }
 
@@ -218,7 +211,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
     function withdrawTVL(
         address _token,
         address _to,
-        uint64 _amount
+        uint _amount
     ) public onlyOwner emergencyWithdrawUnlocked {
         tvlSDs[_token] -= _amount;
         IERC20(_token).safeTransfer(_to, _amount);
@@ -249,31 +242,33 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
 
     // ---------------------- internal functions ----------------------
     function _nonblockingLzReceive(
-        uint16 _srcChainId,
+        uint16 _srcLzChainId,
         bytes memory,
         uint64,
         bytes memory _payload
     ) internal override {
-        require(enableChain[_srcChainId], "TokenBridge: invalid source chain id");
+        require(enableChain[_srcLzChainId], "TokenBridge: invalid source chain id");
 
         (uint priceFeedIn, address tokenOut, address to, bool unwrap) = _decodeReceivePayload(_payload);
         address token;
+        uint amountOut;
         if(unwrap) {
             token = weth;
+            amountOut = calaOutEthAmount(priceFeedIn);
         } else {
             token = tokenOut;
-            address pair = IToken(token).pair;
+            address pair = IToken(token).pair();
             require(pair != address(0x0), "TokenBridge: tokenOut has invalid liquidity pool");
+            amountOut = calcOutTokenAmount(priceFeedIn, token);
         }
         require(!globalPaused && !pausedTokens[token], "TokenBridge: paused");
         require(supportedTokens[token], "TokenBridge: token is not supported");
 
         // sub tvl
-        uint64 tvlSD = tvlSDs[token];
-        require(tvlSD >= amountSD, "TokenBridge: insufficient liquidity");
-        tvlSDs[token] = tvlSD - amountSD;
+        uint tvlSD = tvlSDs[token];
+        require(tvlSD >= amountOut, "TokenBridge: insufficient liquidity");
+        tvlSDs[token] = tvlSD - amountOut;
 
-        uint amountOut = (unwrap)? calaOutEthAmount(): calcOutTokenAmount(priceFeedIn, token);
         // pay fee
         (amountOut, ) = bridgeFeeBP > 0 ? _payFee(amountOut) : (amountOut, 0);
 
@@ -322,47 +317,51 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
             /*uint80 answeredInRound*/
         ) = dataFeed.latestRoundData();
         return answer;
+        // (answer < 0)? type(uint).max - uint(answer) + 1 : uint(answer);
     }
 
     function getChainID() public view returns (uint) {
-        uint256 id;
+        uint id;
         assembly {
             id := chainid()
         }
         return id;
     }
 
-    function calcInTokenPrice( address _token, uint _amount )
-        internal pure returns(uint) 
+    function calcInTokenPrice( address _tokenIn, uint _amount )
+        internal view returns (uint) 
     {
         address pair = IToken(_tokenIn).pair();
         require(pair != address(0x0), "TokenBrige: token pair is not created");
-        uint pn = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        int np = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        uint pn = (np < 0)? type(uint).max - uint(np) + 1 : uint(np);
         IPancakeSwapPair tokenPair = IPancakeSwapPair(pair);
-        (uint r0, uint r1) = tokenPair.getReserves();
+        (uint112 r0, uint112 r1, ) = tokenPair.getReserves();
         uint price = tokenPair.token0() == _tokenIn? 
-                        r0 * _amount * pn / r1: 
-                        r1 * _amount * pn / r0;
+                        uint(r0) * _amount * pn / uint(r1): 
+                        uint(r1) * _amount * pn / uint(r0);
         return price;
     }
 
     function calcOutTokenAmount(
         uint priceFeedIn, 
         address tokenOut
-    )  internal pure returns(uint) {
+    )  internal view returns(uint) {
         address pair = IToken(tokenOut).pair();
-        uint pn = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        int np = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        uint pn = (np < 0)? type(uint).max - uint(np) + 1 : uint(np);
         IPancakeSwapPair tokenPair = IPancakeSwapPair(pair);
-        (uint r0, uint r1) = tokenPair.getReserves();
+        (uint112 r0, uint112 r1, ) = tokenPair.getReserves();
         uint amountOut = (tokenPair.token0() == tokenOut)?
-                            priceFeedIn * r1 / r0 / pn:
-                            priceFeedIn * r0 / r1 / pn;
+                            priceFeedIn * uint(r1) / uint(r0) / pn:
+                            priceFeedIn * uint(r0) / uint(r1) / pn;
         return amountOut * 10**_tokenDecimals(tokenOut);
     }
 
-    function calaOutEthAmount(uint priceFeedIn) internal pure returns(uint)
+    function calaOutEthAmount(uint priceFeedIn) internal view returns(uint)
     {
-        uint pn = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        int np = getChainlinkDataFeedLatestAnswer(); // price of native coin
+        uint pn = (np < 0)? type(uint).max - uint(np) + 1 : uint(np);
         return priceFeedIn * 1e18 / pn;
     }
 
@@ -374,7 +373,10 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         return abi.decode(data, (uint8));
     }
 
-    function _payFee(uint _amountIn) internal view returns (uint amountAfterFee, uint fee) {
+    function _payFee(uint _amountIn) 
+        internal view returns 
+        (uint amountAfterFee, uint fee) 
+    {
         fee = (_amountIn * bridgeFeeBP) / BP_DENOMINATOR;
         amountAfterFee = _amountIn - fee;
     }
@@ -413,7 +415,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
 
     function _checkAdapterParams(bytes calldata _adapterParams) internal view {
         if (useCustomAdapterParams) {
-            _checkGasLimit(aptosChainId, uint16(PacketType.SEND_TO_APTOS), _adapterParams, 0);
+            _checkGasLimit(aptosChainId, uint16(PacketType.SEND_TO), _adapterParams, 0);
         } else {
             require(_adapterParams.length == 0, "TokenBridge: _adapterParams must be empty.");
         }

@@ -47,8 +47,8 @@
       ]
     },
     "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\token\\LegendToken.sol": {
-      "lastModificationDate": 1697604121229,
-      "contentHash": "26ecab106107d4a91e5fd8a8c2952933",
+      "lastModificationDate": 1697972661798,
+      "contentHash": "55cb312675241d5ad6f6fcbce1cd2f64",
       "sourceName": "contracts/token/LegendToken.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -82,6 +82,7 @@
         }
       },
       "imports": [
+        "./interfaces/IToken.sol",
         "./interfaces/IExchange.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
@@ -1043,8 +1044,8 @@
       ]
     },
     "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\bridge\\interfaces\\ITokenBridge.sol": {
-      "lastModificationDate": 1697839084844,
-      "contentHash": "6edef8c4eac1d03bfaf8bcf5c22e3992",
+      "lastModificationDate": 1698116816191,
+      "contentHash": "0878bd621d39df3cb2090b6c07f98110",
       "sourceName": "contracts/bridge/interfaces/ITokenBridge.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -1886,8 +1887,8 @@
       ]
     },
     "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\bridge\\TokenBridge.sol": {
-      "lastModificationDate": 1697887002383,
-      "contentHash": "1f51820fcf23baf79ff41f6cf59bf3c2",
+      "lastModificationDate": 1698131114592,
+      "contentHash": "3016ee1139edc4b123a4069399da3ab3",
       "sourceName": "contracts/bridge/TokenBridge.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -1920,9 +1921,24 @@
           }
         }
       },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol",
+        "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+        "./interfaces/IWETH.sol",
+        "./interfaces/ITokenBridge.sol",
+        "../token/interfaces/IExchange.sol",
+        "../token/interfaces/IToken.sol"
+      ],
+      "versionPragmas": [
+        "0.8.20"
+      ],
+      "artifacts": [
+        "TokenBridge"
+      ]
     },
     "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\bridge\\ChainLinkTest.sol": {
       "lastModificationDate": 1697886955054,
@@ -2011,6 +2027,49 @@
       ],
       "artifacts": [
         "AggregatorV3Interface"
+      ]
+    },
+    "F:\\Blockchain\\Defi\\layerzero\\MarinHorseBridge\\contracts\\token\\interfaces\\IToken.sol": {
+      "lastModificationDate": 1697971956536,
+      "contentHash": "c8d67c3a02071b39f56f1bbe602ebd84",
+      "sourceName": "contracts/token/interfaces/IToken.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "evmVersion": "berlin",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IToken"
       ]
     }
   }

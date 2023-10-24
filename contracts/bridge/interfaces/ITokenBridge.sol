@@ -12,26 +12,30 @@ interface ITokenBridge {
     }
 
     function sendTokenToDest(
-        address _token,
-        bytes32 _toAddress,
-        uint _amountLD,
+        uint16 _toLzDestChain,
+        address _tokenIn,
+        uint _amountIn,
+        address _tokenOut,
+        address _toAddress,
         LzLib.CallParams calldata _callParams,
         bytes calldata _adapterParams
     ) external payable;
 
     function sendETHToDest(
-        bytes32 _toAddress,
-        uint _amountLD,
+        uint16 _toLzDestChain,
+        address _toAddress,
+        uint _amountIn,
         LzLib.CallParams calldata _callParams,
         bytes calldata _adapterParams
     ) external payable;
 
     function quoteForSend(
+        uint16 _toLzDestChain,
         LzLib.CallParams calldata _callParams, 
         bytes calldata _adapterParams
     ) external view returns (uint nativeFee, uint zroFee);
 
-    event Send(address indexed token, address indexed from, bytes32 indexed to, uint amountLD);
+    event Send(address indexed token, address indexed from, address indexed to, uint amountLD);
     event Receive(address indexed token, address indexed to, uint amountLD);
     event RegisterToken(address token);
     event SetBridgeBP(uint bridgeFeeBP);

@@ -77,9 +77,9 @@
         },
         {
           "indexed": true,
-          "internalType": "bytes32",
+          "internalType": "address",
           "name": "to",
-          "type": "bytes32"
+          "type": "address"
         },
         {
           "indexed": false,
@@ -241,6 +241,11 @@
     {
       "inputs": [
         {
+          "internalType": "uint16",
+          "name": "_toLzDestChain",
+          "type": "uint16"
+        },
+        {
           "components": [
             {
               "internalType": "address payable",
@@ -282,13 +287,18 @@
     {
       "inputs": [
         {
-          "internalType": "bytes32",
+          "internalType": "uint16",
+          "name": "_toLzDestChain",
+          "type": "uint16"
+        },
+        {
+          "internalType": "address",
           "name": "_toAddress",
-          "type": "bytes32"
+          "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_amountLD",
+          "name": "_amountIn",
           "type": "uint256"
         },
         {
@@ -314,7 +324,7 @@
           "type": "bytes"
         }
       ],
-      "name": "sendETHToAptos",
+      "name": "sendETHToDest",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
@@ -322,19 +332,29 @@
     {
       "inputs": [
         {
+          "internalType": "uint16",
+          "name": "_toLzDestChain",
+          "type": "uint16"
+        },
+        {
           "internalType": "address",
-          "name": "_token",
+          "name": "_tokenIn",
           "type": "address"
         },
         {
-          "internalType": "bytes32",
-          "name": "_toAddress",
-          "type": "bytes32"
+          "internalType": "uint256",
+          "name": "_amountIn",
+          "type": "uint256"
         },
         {
-          "internalType": "uint256",
-          "name": "_amountLD",
-          "type": "uint256"
+          "internalType": "address",
+          "name": "_tokenOut",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
         },
         {
           "components": [
@@ -359,7 +379,7 @@
           "type": "bytes"
         }
       ],
-      "name": "sendToAptos",
+      "name": "sendTokenToDest",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
