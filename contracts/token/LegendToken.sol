@@ -1,5 +1,6 @@
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
+import "./interfaces/IToken.sol";
 import "./interfaces/IExchange.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
@@ -141,10 +142,7 @@ library SafeMath {
 	}
 }
 
-contract LegendToken is UUPSUpgradeable, OwnableUpgradeable{
-
-	event Transfer(address indexed from, address indexed to, uint256 value);
-	event Approval(address indexed owner, address indexed spender, uint256 value);
+contract LegendToken is UUPSUpgradeable, OwnableUpgradeable, IToken{
 
 	using SafeMath for uint256;
 
@@ -185,9 +183,8 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable{
 		_balances[msg.sender] = _totalSupply;
 		emit Transfer(address(0), msg.sender, _totalSupply);
 
-        IPancakeSwapRouter _PancakeSwapRouter = IPancakeSwapRouter(_router);
-		PancakeSwapRouter = _PancakeSwapRouter;
-		PancakeSwapV2Pair = IPancakeSwapFactory(_PancakeSwapRouter.factory()).createPair(address(this), _PancakeSwapRouter.WETH());
+        PancakeSwapRouter = IPancakeSwapRouter(_router);
+		PancakeSwapV2Pair = IPancakeSwapFactory(PancakeSwapRouter.factory()).createPair(address(this), PancakeSwapRouter.WETH());
 	}
 
 	function decimals() external view returns (uint8) {
@@ -206,8 +203,16 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable{
 		return _totalSupply;
 	}
 
-	function balanceOf(address account) public view returns (uint256) {
+	function balanceOf(address account) external view returns (uint256) {
 		return _balances[account];
+	}
+
+	function router() external view returns (address) {
+		return address(PancakeSwapRouter);
+	}
+
+	function pair() external view returns (address) {
+		return PancakeSwapV2Pair;
 	}
 
 	function transfer(address recipient, uint256 amount) external validRecipient(recipient) returns (bool) {
@@ -230,12 +235,12 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable{
 		return true;
 	}
 
-	function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {
+	function increaseAllowance(address spender, uint256 addedValue) external returns (bool) {
 		_approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));
 		return true;
 	}
 
-	function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {
+	function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool) {
 		_approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, "BEP20: decreased allowance below zero"));
 		return true;
 	}
@@ -300,7 +305,7 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable{
 	}
 
     function addLiquidity(uint256 ethAmount) external onlyOwner {
-		uint tokenAmount = balanceOf(msg.sender) / 2;
+		uint tokenAmount = _balances[msg.sender] / 2;
         _approve(address(this), address(PancakeSwapRouter), tokenAmount);
 
         PancakeSwapRouter.addLiquidityETH{value: ethAmount}(

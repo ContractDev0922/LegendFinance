@@ -70,6 +70,12 @@ module.exports = {
       80001: '0x8FC2b28Db17146bE8bb28194Cd5FE5892A88c879',
       11155111: '0x049a53c57f5214247AfB611EBB88D8Cd745eb4Bc',
     },
+    priceFeed: { // native coin(ETH, BNB, FTM, MATIC)-USD pair address in chainlink
+      97: '0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526',
+      4002: '0xB8C458C957a6e6ca7Cc53eD95bEA548c52AFaA24',
+      80001: '0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada',
+      11155111: '0x694AA1769357215DE4FAC081bf1f309aDC325306',
+    },
     MPL: {
       11155111: '0x871ab0e9597E8b31694e848222E7a1D7F97321E3'
     }, // maple token sepolia testnet
