@@ -250,19 +250,23 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable, IToken{
 	}
 
 	function leftTime() external view returns(uint) {
-		return (block.timestamp - faucetedTime[msg.sender])/1000/3600;
+		uint time = 0;
+		uint ct = faucetedTime[msg.sender];
+		if( ct > 0 && block.timestamp > ct && block.timestamp < ct + 15 minutes) {
+			time = (block.timestamp - ct)/1000/3600;
+		}
+		return time;
 	}
 
 	function faucet() external {
-		uint proposalTime = faucetedTime[msg.sender];
-		require(proposalTime < block.timestamp + 24 hours, "Token already proposed");		
+		uint ct = faucetedTime[msg.sender];		
+		require(ct == 0 || block.timestamp <= ct || block.timestamp > ct + 15 minutes, "Token already proposed");		
 		_mint(msg.sender, 10 * 10**_decimals);
 		faucetedTime[msg.sender] = block.timestamp;
 	}
 
 	function _mint(address account, uint256 amount) internal {
 		require(account != address(0), "BEP20: mint to the zero address");
-
 		_totalSupply = _totalSupply.add(amount);
 		_balances[account] = _balances[account].add(amount);
 		emit Transfer(address(0), account, amount);
@@ -270,7 +274,6 @@ contract LegendToken is UUPSUpgradeable, OwnableUpgradeable, IToken{
 
 	function _burn(address account, uint256 amount) internal {
 		require(account != address(0), "BEP20: burn from the zero address");
-
 		_balances[account] = _balances[account].sub(amount, "BEP20: burn amount exceeds balance");
 		_totalSupply = _totalSupply.sub(amount);
 		emit Transfer(account, address(0), amount);
