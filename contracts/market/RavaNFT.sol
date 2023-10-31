@@ -5,12 +5,13 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "./IRavaNFT.sol";
 
 import "hardhat/console.sol";
 
 // https://gateway.pinata.cloud/ipfs/QmRQr15iY98dj7kbfn3G9uoXveSbvo92rdutpsj1ktxBY3/{id}.json
 
-contract RavaNFT is ERC1155, Ownable{
+contract RavaNFT is ERC1155, Ownable, IRavaNFT {
     using Counters for Counters.Counter;
     uint itemId;
     address public buyAndSellAddress;
@@ -19,27 +20,6 @@ contract RavaNFT is ERC1155, Ownable{
     string public symbol;
     string __baseURI;
     mapping(uint256 => ITEM) private IdToItem;
-
-    enum TYPE {
-        NONE,
-        RIFLE,
-        PLAYER,
-        BULLET_PROOF
-    }
-
-    struct ITEM {
-        uint256 id;
-        address owner;
-        TYPE _type;
-        bool onSell;
-    }
-
-    // ------------- Events -----------
-    event FreeItemMinted(
-        uint256 indexed id,
-        address minter,
-        TYPE _type
-    );
 
     constructor(
         string memory _name, 
@@ -82,8 +62,6 @@ contract RavaNFT is ERC1155, Ownable{
         _;
     }
 
-    //  Get free items :)
-
     function createNFTItem(TYPE itemType) external onlyOwner {
         itemId++;
         IdToItem[itemId].id = itemId;
@@ -95,20 +73,20 @@ contract RavaNFT is ERC1155, Ownable{
     }
 
     // details of an item
-
     function getItemDetails(uint256 _itemId)
         external
         view
+        override
         returns (ITEM memory)
     {
         return IdToItem[_itemId];
     }
 
     // get user iventory
-
     function getUserInventory(address _user)
         external
         view
+        override
         returns (ITEM[] memory)
     {
         uint256 userItemsCounter = 0;
@@ -133,40 +111,42 @@ contract RavaNFT is ERC1155, Ownable{
     }
 
     // total items minted
-    function totalItemsMinted() external view returns (uint256) {
+    function totalItemsMinted() external view override returns (uint256) {
         return itemId;
     }
 
     // change owner of an item
-
-    function changeOwner(address _newOwner, uint _itemId) external onlyContract {
+    function changeOwner(address _newOwner, uint _itemId) external override onlyContract {
         IdToItem[_itemId].owner = _newOwner;
     }
 
     // change item state 
-
-    function changeState(uint _itemId) external onlyContract{
+    function changeState(uint _itemId) external override onlyContract{
         IdToItem[_itemId].onSell = !IdToItem[_itemId].onSell;
     }
 
     function changeBuyAndSellAddress(
         address _buyAndSellAddress, 
         address _auctionAddress
-    ) external onlyOwner{
+    ) external override onlyOwner{
         buyAndSellAddress = _buyAndSellAddress;
         auctionAddress = _auctionAddress;
     }
 
-    function getType(uint _choice) external pure returns(TYPE){
-        if(_choice ==1){
-            return TYPE.RIFLE;
-        }
-        else if (_choice ==2){
+    function getType(uint _choice) external pure override returns(TYPE){
+        if(_choice == 1){
             return TYPE.PLAYER;
-        } else if (_choice ==3){
-            return TYPE.BULLET_PROOF;
-        }
-        else {
+        } else if (_choice == 2){
+            return TYPE.POWER;
+        } else if (_choice == 3){
+            return TYPE.ARMOR;
+        } else if (_choice == 4){
+            return TYPE.SWORD;
+        } else if (_choice == 5){
+            return TYPE.SHIELD;
+        } else if (_choice == 6){
+            return TYPE.SPEAR;
+        } else {
             return TYPE.NONE;
         }
     }

@@ -28,8 +28,8 @@ module.exports = {
   etherscan: {
     // apiKey: apiKeyForEther,
     // apiKey: apiKeyForBsc,
-    // apiKey: apiKeyForFantom,
-    apiKey: apiKeyForPolygon,
+    apiKey: apiKeyForFantom,
+    // apiKey: apiKeyForPolygon,
   },
   gasReporter: {
     currency: 'USD',
@@ -48,9 +48,9 @@ module.exports = {
     },
     contract: {
       97: '',
-      4002: '',
+      4002: '0x49fe4f2A63820F2C0FAe4A4C5Ef7EfA2C950A94b',
       80001: '',
-      11155111: '',
+      11155111: '0xBb562A66304b6550496956e92C5C5Cf38484Ce62',
     },
     dexRouter: {
       97: '0x746b2a0C701Aba855f36Ead0128cD2853cb1fbAC',
@@ -76,62 +76,42 @@ module.exports = {
       80001: '0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada',
       11155111: '0x694AA1769357215DE4FAC081bf1f309aDC325306',
     },
+    NFT: { // NFT token sepolia testnet
+      11155111: '0x198953C6C35eE9E327B5fFb572B8d662732fEb75',
+    }, 
+    BAS: { // buy and sell
+      11155111: '0x1Ab1DF022cf7389bC25145884f8b82Eac0B5a34c',
+    }, 
+    AAB: { // auction and bid
+      11155111: '0x49fe4f2A63820F2C0FAe4A4C5Ef7EfA2C950A94b',
+    },
     RAVA: {
       11155111: '0x66E8A1123c2ce776A3b63C39A584171474f38f82',
-      4002: '0x871ab0e9597E8b31694e848222E7a1D7F97321E3'
-    },
-    RAVA_ETH: {
-      11155111: '0x80831E3E95496Bb4945164bF7D7409DeD7e65424',
-      4002: '0x871ab0e9597E8b31694e848222E7a1D7F97321E3'
-    },
+    }, // rava token sepolia testnet
     MPL: {
-      11155111: '0x871ab0e9597E8b31694e848222E7a1D7F97321E3'
+      11155111: '0x5Eb037d06140DFC873740E711C4A5393f0568C80'
     }, // maple token sepolia testnet
-    MPL_ETH: {
-      11155111: '0x80831E3E95496Bb4945164bF7D7409DeD7e65424'
-    },
     CHNG: {
-      11155111: '0x556dd7F702B9E190d1c5FCd1D06AeB5C2d657C71'
+      11155111: '0x1dC5777E9C9B55deBCF75Ec0473d875e5cda3E7f'
     }, // chainge token sepolia testnet
-    CHNG_ETH: {
-      11155111: '0xFc57FbB97D442319D2Df7dC40B9F9E3035127c9E'
-    },
     SWLO: {
-      97: '0x66E8A1123c2ce776A3b63C39A584171474f38f82'
+      97: '0xC80d9B88e262EDD83351f192ba916393230b8fA8'
     }, // swello token bnb testnet
-    SWLO_BNB: {
-      97: '0x79B388887874104EE1CeC4F0670433Fa7f61808A'
-    },
     ADMT: {
-      97: '0x1dC5777E9C9B55deBCF75Ec0473d875e5cda3E7f'
+      97: '0x5adC6858BE768c66278685198d2b488ffe7387A4'
     }, // adamant token bnb testnet
-    ADMT_BNB: {
-      97: '0x3a96A5e01960e5bf87e1a24cD930C5CB3BDDB8ea'
-    },
     SPR: {
-      4002: '0x18AA1c210f88B706BEFfD5562d54512868CA9739'
+      4002: '0x58BA6B51A2ddE4E4B0422F775bDFada73063DD2b'
     }, // superrare token fantom testnet
-    SPR_FTM: {
-      4002: '0xdf21a90e3c9579b7a3483fac000de1c6f66df44f'
-    },
     AHA: {
-      4002: '0x0554621aDfAedC79aB8ABA2433Db20aBB9c85DAe'
+      4002: '0xA5ef0637691268C91A730F926f880d1894b43617'
     }, //  aha token fantom testnet
-    AHA_FTM: {
-      4002: '0xd2fdde3660b4b3e6d1e85628a10eb05ef28e82fd'
-    },
     LIT: {
       80001: '0xd769aA464D4E0c1d19ff894F5f464a688A564A48'
     }, // litentry token mumbai testnet
-    LIT_MATIC: {
-      80001: '0x7a6b91d7ae79a19d871adfd5f4fd99df30a57450'
-    },
     PST: {
       80001: '0x51824Eba79A051467FbCBEe613dC42DEEf1508E4'
-    }, // polkastarterToken mumbai testnet
-    PST_MATIC: {
-      80001: '0xd052d7f997fc437983ca7705722bb83bb6975783'
-    }
+    } // polkastarterToken mumbai testnet
   },
   defaultNetwork: "hardhat",
 

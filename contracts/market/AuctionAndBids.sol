@@ -4,14 +4,18 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import "./IRavaNFT.sol";
 import "hardhat/console.sol";
 
-contract AuctionAndBids is UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard {
+contract AuctionAndBids is 
+    UUPSUpgradeable, 
+    OwnableUpgradeable, 
+    ReentrancyGuardUpgradeable 
+{
     // --------------- Var --------------
     using Counters for Counters.Counter;
     Counters.Counter private auctionId;
@@ -66,7 +70,9 @@ contract AuctionAndBids is UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard 
     function initialize(
 		address _ravaItemAddress, address _payTokenAddress
     ) public initializer {
+        __UUPSUpgradeable_init();
         __Ownable_init();
+        __ReentrancyGuard_init();
         __AuctionAndBids_init_unchained(_ravaItemAddress, _payTokenAddress);
     }
 
@@ -237,9 +243,6 @@ contract AuctionAndBids is UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard 
         }
         return false;
     }
-
- 
-
 
 // FIX BALANCE
 

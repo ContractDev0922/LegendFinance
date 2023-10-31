@@ -32,7 +32,12 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_buyAndSellAddress",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
           "type": "address"
         }
       ],
@@ -45,12 +50,12 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_newOwner",
+          "name": "",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_itemId",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -63,7 +68,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_itemId",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -76,11 +81,11 @@
       "inputs": [
         {
           "internalType": "enum IRavaNFT.TYPE",
-          "name": "itemType",
+          "name": "",
           "type": "uint8"
         }
       ],
-      "name": "getFreeItem",
+      "name": "createNFTItem",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -89,7 +94,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_itemId",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -130,7 +135,7 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_choice",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -149,7 +154,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_user",
+          "name": "",
           "type": "address"
         }
       ],

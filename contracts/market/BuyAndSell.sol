@@ -1,17 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
 import "./IRavaNFT.sol";
 import "hardhat/console.sol";
 
-contract BuyAndSell is UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard {
+contract BuyAndSell is 
+    UUPSUpgradeable, 
+    OwnableUpgradeable, 
+    ReentrancyGuardUpgradeable 
+{
     // -----------  VAR --------------
     using Counters for Counters.Counter;
 
@@ -50,11 +53,12 @@ contract BuyAndSell is UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard {
         address indexed seller
     );
 
-
     function initialize(
 		address _nftItemAddress, address _payTokenAddress
     ) public initializer {
+        __UUPSUpgradeable_init();
         __Ownable_init();
+        __ReentrancyGuard_init();
         __BuyAndSell_init_unchained(_nftItemAddress, _payTokenAddress);
     }
 

@@ -13,7 +13,7 @@ interface IRavaNFT {
         SPEAR
     }
     struct ITEM {
-        uint256 id;
+        uint id;
         address owner;
         TYPE _type;
         bool onSell;
@@ -24,12 +24,12 @@ interface IRavaNFT {
         TYPE _type
     );
 
-   function getFreeItem(TYPE itemType) external ;
-   function getItemDetails(uint _itemId) external view returns(ITEM memory);
+   function createNFTItem(TYPE) external ;
+   function getItemDetails(uint) external view returns(ITEM memory);
    function totalItemsMinted () external view returns (uint);
-   function getUserInventory(address _user) external view returns (ITEM[] memory);
-   function changeOwner(address _newOwner, uint _itemId) external;
-   function changeState(uint _itemId) external;
-   function changeBuyAndSellAddress(address _buyAndSellAddress) external;
-   function getType(uint _choice) external view returns(TYPE);
+   function getUserInventory(address) external view returns (ITEM[] memory);
+   function changeOwner(address, uint) external;
+   function changeState(uint) external;
+   function changeBuyAndSellAddress(address, address) external;
+   function getType(uint) external view returns(TYPE);
 }

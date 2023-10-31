@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.20;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@layerzerolabs/solidity-examples/contracts/lzApp/NonblockingLzApp.sol";
 import "@layerzerolabs/solidity-examples/contracts/lzApp/libs/LzLib.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "./lzApp/NonblockingLzApp.sol";
 import "./interfaces/IWETH.sol";
 import "./interfaces/ITokenBridge.sol";
 import "../token/interfaces/IExchange.sol";
@@ -27,13 +29,19 @@ import "../token/interfaces/IToken.sol";
 // chainId: 10161
 // endpoint: 0xae92d5aD7583AD66E49A0c67BAd18F6ba52dDDc1
 
-contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
+contract TokenBridge is 
+    UUPSUpgradeable, 
+    OwnableUpgradeable, 
+    ReentrancyGuardUpgradeable,
+    NonblockingLzApp,
+    ITokenBridge
+{
     using SafeERC20 for IERC20;
 
     uint public constant BP_DENOMINATOR = 10000;
     uint8 public constant SHARED_DECIMALS = 6;
 
-    uint16 public aptosChainId;
+    uint16 public toLzChainId;
 
     uint public bridgeFeeBP;
 
@@ -62,17 +70,27 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
         _;
     }
 
-    constructor(
+    function initialize(
         address _layerZeroEndpoint
-    ) NonblockingLzApp(_layerZeroEndpoint) {
+    ) public initializer {
+        __UUPSUpgradeable_init();
+        __Ownable_init();
+        __NonblockingLzApp_init(_layerZeroEndpoint);
+        __ReentrancyGuard_init();
+        __Bridge_init_unchained();
+    }
+
+	function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
+
+	function __Bridge_init_unchained() internal initializer {
         priceFeed[11155111] = 0x694AA1769357215DE4FAC081bf1f309aDC325306; // ETH-USD
         priceFeed[97] = 0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526; // BNB-USD
-        priceFeed[4002] = 0xB8C458C957a6e6ca7Cc53eD95bEA548c52AFaA24; // FTM-USD
+        priceFeed[4002] = 0xe04676B9A9A2973BCb0D1478b5E1E9098BBB7f3D; // FTM-USD
         priceFeed[80001] = 0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada; // MATIC-USD
 
         uint cid = getChainID();
         dataFeed = AggregatorV3Interface(priceFeed[cid]);
-    }
+	}
 
     function sendTokenToDest(
         uint16 _toLzDestChain,
@@ -158,6 +176,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
             _adapterParams,
             _fee
         );
+        toLzChainId = _toLzDestChain;
     }
 
     function trustAddress(uint16 _lzDestChainId, address _otherContract) public onlyOwner {
@@ -402,7 +421,7 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
             bool unwrap
         )
     {
-        require(_payload.length == 85, "TokenBridge: invalid payload length");
+        require(_payload.length == 98, "TokenBridge: invalid payload length");
         PacketType packetType = PacketType(uint8(_payload[0]));
         require(packetType == PacketType.RECEIVE_FROM, "TokenBridge: unknown packet type");
         assembly {
@@ -414,8 +433,8 @@ contract TokenBridge is ITokenBridge, NonblockingLzApp, ReentrancyGuard {
     }
 
     function _checkAdapterParams(bytes calldata _adapterParams) internal view {
-        if (useCustomAdapterParams) {
-            _checkGasLimit(aptosChainId, uint16(PacketType.SEND_TO), _adapterParams, 0);
+        if (useCustomAdapterParams && toLzChainId > 0) {
+            _checkGasLimit(toLzChainId, uint16(PacketType.SEND_TO), _adapterParams, 0);
         } else {
             require(_adapterParams.length == 0, "TokenBridge: _adapterParams must be empty.");
         }
