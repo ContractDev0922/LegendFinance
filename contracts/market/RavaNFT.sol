@@ -1,144 +1,173 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+pragma solidity ^0.8.4;
+
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-pragma solidity ^0.8.0;
+import "hardhat/console.sol";
 
-library UintToString {
-    function toString(uint256 value) internal pure returns (string memory) {
-        if (value == 0) {
+// https://gateway.pinata.cloud/ipfs/QmRQr15iY98dj7kbfn3G9uoXveSbvo92rdutpsj1ktxBY3/{id}.json
+
+contract RavaNFT is ERC1155, Ownable{
+    using Counters for Counters.Counter;
+    uint itemId;
+    address public buyAndSellAddress;
+    address public auctionAddress;
+    string public name;
+    string public symbol;
+    string __baseURI;
+    mapping(uint256 => ITEM) private IdToItem;
+
+    enum TYPE {
+        NONE,
+        RIFLE,
+        PLAYER,
+        BULLET_PROOF
+    }
+
+    struct ITEM {
+        uint256 id;
+        address owner;
+        TYPE _type;
+        bool onSell;
+    }
+
+    // ------------- Events -----------
+    event FreeItemMinted(
+        uint256 indexed id,
+        address minter,
+        TYPE _type
+    );
+
+    constructor(
+        string memory _name, 
+        string memory _symbol, 
+        string memory _baseURI
+    ) ERC1155("") {
+        name = _name;
+        symbol = _symbol;
+        __baseURI = _baseURI;
+    }
+
+    function uri(uint256 _tokenId) public view override returns (string memory) {
+        return string(abi.encodePacked(__baseURI, "/", uint2str(_tokenId), ".json"));
+    }    
+
+    function uint2str(uint256 _i) internal pure returns (string memory) {
+        if (_i == 0) {
             return "0";
         }
-        
-        uint256 temp = value;
-        uint256 digits;
-        
-        while (temp != 0) {
-            digits++;
-            temp /= 10;
+        uint256 j = _i;
+        uint256 length;
+        while (j != 0) {
+            length++;
+            j /= 10;
         }
-        
-        bytes memory buffer = new bytes(digits);
-        
-        while (value != 0) {
-            digits--;
-            buffer[digits] = bytes1(uint8(48 + (value % 10)));
-            value /= 10;
+        bytes memory bstr = new bytes(length);
+        uint256 k = length;
+        while (_i != 0) {
+            k = k - 1;
+            uint8 temp = (48 + uint8(_i - (_i / 10) * 10));
+            bytes1 b1 = bytes1(temp);
+            bstr[k] = b1;
+            _i /= 10;
         }
-        return string(buffer);
-    }
-}
+        return string(bstr);
+    }    
 
-contract RavaNFT is ERC1155URIStorage, Ownable {
-    using UintToString for uint256;
-    using SafeMath for uint256;
-    using Counters for Counters.Counter;
-    Counters.Counter _tokenIds;
-    Counters.Counter _collectionIds;
-    string public baseTokenURI;
-
-    struct Collection {        
-        string collectionName;
-        string collectionUri;
-        uint maxSupply;
-        uint maxPerMint;
-        uint mintedCount;
+    modifier onlyContract(){
+        require(buyAndSellAddress == msg.sender || auctionAddress == msg.sender,"not allowed");
+        _;
     }
 
-    mapping(uint => Collection) idToClt; // token id to collection
-    mapping(uint => uint) tidToCid; // token id to collection id
-    mapping(address => uint[]) accountToIds; // wallet address => token id
+    //  Get free items :)
 
-    constructor(string memory _baseTokenURI) 
-        ERC1155("https://gateway.pinata.cloud/ipfs/QmRQr15iY98dj7kbfn3G9uoXveSbvo92rdutpsj1ktxBY3/{_tokenIds}.json"){}
-
-    function setURI(string memory newuri) public onlyOwner {
-        _setURI(newuri);
+    function createNFTItem(TYPE itemType) external onlyOwner {
+        itemId++;
+        IdToItem[itemId].id = itemId;
+        IdToItem[itemId]._type = itemType;
+        IdToItem[itemId].owner = msg.sender;
+        IdToItem[itemId].onSell = false;
+        _mint(msg.sender, itemId, 1, "");
+        emit FreeItemMinted(itemId, msg.sender, itemType);
     }
 
-    function collectionURI(uint collectionId) external view returns(string memory) {
-        Collection storage collection = idToClt[collectionId];
-        return collection.collectionUri;
+    // details of an item
+
+    function getItemDetails(uint256 _itemId)
+        external
+        view
+        returns (ITEM memory)
+    {
+        return IdToItem[_itemId];
     }
 
-    function setCollectionURI(uint collectionId, string memory cltUri) external onlyOwner {
-        Collection storage collection = idToClt[collectionId];
-        collection.collectionUri = cltUri;
-    }
+    // get user iventory
 
-    function createCollection(
-        string memory _colName,
-        string memory _collectionUri,
-        uint _maxSupply,
-        uint _maxPerMint
-    ) public onlyOwner {
-        require(bytes(_colName).length > 0, "RAVA_NFT: collection name is invalid");
-        require(_maxSupply > 0, "RAVA_NFT: max supply must be greater than 0");
-        idToClt[_collectionIds.current()] = Collection(_colName, _collectionUri, _maxSupply, _maxPerMint, 0);
-        _collectionIds.increment();
-    }
-
-    function mintNFTs(uint collectionId, uint _count, uint[] memory amounts) external onlyOwner {
-        uint totalMinted = _tokenIds.current();
-        Collection storage collectionData = idToClt[collectionId];
-        require(totalMinted.add(_count) <= collectionData.maxSupply, "Not enough NFTs!");
-        require(_count > 0 && _count <= collectionData.maxPerMint, "Cannot mint specified count of NFTs.");
-        uint[] storage ownedIds = accountToIds[msg.sender];
-        uint[] memory _ids = new uint[](_count); 
-        for (uint i = 0; i < _count; i++) {
-            uint curTokenId = _tokenIds.current();
-            tidToCid[curTokenId] = collectionId;
-            collectionData.mintedCount += 1;
-            ownedIds.push(curTokenId);
-            _ids[i] = curTokenId;
-            _tokenIds.increment();
+    function getUserInventory(address _user)
+        external
+        view
+        returns (ITEM[] memory)
+    {
+        uint256 userItemsCounter = 0;
+        uint256 currentIndex = 0;
+        // get length
+        for (uint256 i = 1; i <= itemId; i++) {
+            if (IdToItem[i].owner == _user) {
+                userItemsCounter += 1;
+            }
         }
-        _mintBatch(msg.sender, _ids, amounts, "");
-    }
+        ITEM[] memory items = new ITEM[](userItemsCounter);
 
-    function _mintSingleNFT(uint collectionId, uint amount) external onlyOwner {
-        uint newTokenID = _tokenIds.current();
-        _mint(msg.sender, newTokenID, amount, "");
-        Collection storage collection = idToClt[collectionId];
-        collection.mintedCount += 1;
-        tidToCid[newTokenID] = collectionId;
-        uint[] storage ownedIds = accountToIds[msg.sender];
-        ownedIds.push(newTokenID);
-        _tokenIds.increment();
-    }
-
-    function tokensOfOwner(address _owner) external view returns (uint[] memory) {
-        uint[] memory tokens = accountToIds[_owner];
-        uint _vid;
-        for (uint i = 0; i < tokens.length; i++) {
-            uint tokenCount = balanceOf(_owner, tokens[i]);
-            if(tokenCount > 0) _vid++;
+        for (uint256 i = 1; i <= itemId; i++) {
+            if (IdToItem[i].owner == _user) {
+                ITEM storage currentItem = IdToItem[i];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
+            }
         }
-        uint[] memory valids = new uint[](_vid);
-         _vid = 0;
-        for (uint i = 0; i < tokens.length; i++) {
-            uint tokenCount = balanceOf(_owner, tokens[i]);
-            if(tokenCount > 0) valids[_vid++] = tokens[i];
+
+        return items;
+    }
+
+    // total items minted
+    function totalItemsMinted() external view returns (uint256) {
+        return itemId;
+    }
+
+    // change owner of an item
+
+    function changeOwner(address _newOwner, uint _itemId) external onlyContract {
+        IdToItem[_itemId].owner = _newOwner;
+    }
+
+    // change item state 
+
+    function changeState(uint _itemId) external onlyContract{
+        IdToItem[_itemId].onSell = !IdToItem[_itemId].onSell;
+    }
+
+    function changeBuyAndSellAddress(
+        address _buyAndSellAddress, 
+        address _auctionAddress
+    ) external onlyOwner{
+        buyAndSellAddress = _buyAndSellAddress;
+        auctionAddress = _auctionAddress;
+    }
+
+    function getType(uint _choice) external pure returns(TYPE){
+        if(_choice ==1){
+            return TYPE.RIFLE;
         }
-        return valids;
-    }
-
-    function collectionOf(uint _collectionId) external view returns(Collection memory) {
-        return idToClt[_collectionId];
-    }
-
-    function getLatestCollectionId() external view returns(uint) {
-        return _collectionIds.current();
-    }
-
-    function withdraw() public payable onlyOwner {
-        uint balance = address(this).balance;
-        require(balance > 0, "No ether left to withdraw");
-        (bool success, ) = (msg.sender).call{value: balance}("");
-        require(success, "Transfer failed.");   
+        else if (_choice ==2){
+            return TYPE.PLAYER;
+        } else if (_choice ==3){
+            return TYPE.BULLET_PROOF;
+        }
+        else {
+            return TYPE.NONE;
+        }
     }
 }
